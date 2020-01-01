@@ -15,7 +15,7 @@
                     @endif
 
                     @if (auth()->user()->authority == "1")
-                    <a href="/article/post" class="btn btn-dark">Post article</a>
+                    <a href="/article/post" class="btn btn-primary btn-center">Post article</a>
                     @else
                     <div class="alert alert-danger" role="alert">
                         Permission denied
@@ -29,18 +29,28 @@
 
                 <div class="card-body">
                     <table class="table table-striped">
+                        <tr>
+                            <td>Auth</td>
+                            <td>Title</td>
+                            @if ( $agent->isDesktop() == "1" )
+                            <td>Content</td>
+                            @endif
+                            <td></td>
+                        </tr>
                         @if (count( $articles ) > 0)
                         @foreach($articles as $article)
                         <tr>
                             <td>
                                 {{ $article->name }}
-                            <td>
+                            </td>
                             <td>
                                 {{ $article->title }}
-                            <td>
+                            </td>
+                            @if ( $agent->isDesktop() == "1" )
                             <td>
                                 {{ $article->content }}
-                            <td>
+                            </td>
+                            @endif
                             <td>
                                 <form action="/article/{{ $article->id }}" method="GET">
                                     @csrf

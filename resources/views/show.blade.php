@@ -4,6 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">Article</div>
 
@@ -11,20 +18,22 @@
                     @if (count( $articles ) > 0)
                     @foreach($articles as $article)
                     @if ($article->id == $id )
-                    <b>Author:</b><br>
-                    {{ $article->name }} <br><br>
-                    <b>Title:</b><br>
-                    {{ $article->title }} <br><br>
-                    <b>Content:</b><br>
-                    {{ $article->content }} <br>
+                    <h1 class="mt-4">{{ $article->title }}</h1>
+                    <p class="lead">
+                        by
+                        <a href="#">{{ $article->name }}</a>
+                    </p>
+                    <hr> {{ $article->content }} <br>
                     @endif
                     @endforeach
+                    @else
+                    return reverse('/home');
                     @endif
                 </div>
             </div>
             <br>
             <div class="card">
-                <div class="card-header">Add a public comment...</div>
+                <div class="card-header">Leave a Comment:</div>
 
                 <div class="card-body">
                     <form action="{{ action('messagecontroller@create') }}" method="POST">
@@ -44,9 +53,8 @@
                 </div>
             </div>
             <br>
+            @if (count($msg) > 0)
             <div class="card">
-                <div class="card-header">Message</div>
-
                 <div class="card-body">
                     @foreach ($msg as $m)
                     <div class="media mb-4">
@@ -59,23 +67,29 @@
                     @endforeach
                 </div>
             </div>
+            @endif
             <br>
             <nav aria-label="Page navigation example">
                 <ul class="pagination pagination-lg justify-content-center">
+                    @if($article->id > 1)
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                        <a class="page-link" href="/article/{{ intval($article->id) - 1 }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
+                    @endif
+                    <!--
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                        @foreach($articles as $article)
+                        <a class="page-link" href="/article/{{ intval($article->id) + 1 }}" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>
+                        @endforeach
                     </li>
                 </ul>
             </nav>
