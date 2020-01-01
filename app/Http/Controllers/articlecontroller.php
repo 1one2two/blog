@@ -40,15 +40,27 @@ class articlecontroller extends Controller
     public function show($id)
     {
         //$tasks = article::orderBy('created_at', 'asc')->get();
-        $tasks = DB::select('SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id WHERE articles.id = ' . $id);
+        $articles = DB::table('articles')
+            ->where('articles.id', '=', ($id))
+            ->join('users', 'users.id', 'articles.author_id')
+            ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name')
+            ->get();
+
+        $cou = DB::table('articles')
+            ->join('users', 'users.id', 'articles.author_id')
+            ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name')
+            ->get()->count();
+
+        //$tasks = DB::select('SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id WHERE articles.id = ' . $id)->paginate(1);
         $msg = DB::select('SELECT users.name as name, messages.content FROM `messages` INNER JOIN users ON users.id = messages.user_id   WHERE `article_id` = ' . $id);
-        if (count($tasks) > 0)
+        if (count($articles) > 0) {
             return view('show', [
-                'articles' => $tasks,
+                'articles' => $articles,
+                'cou' => $cou,
                 'msg' => $msg,
                 'id' => $id,
-            ]); 
-        else {
+            ]);
+        } else {
             return Redirect::to(action('HomeController@index'));
         }
     }

@@ -76,27 +76,26 @@
             @endif
             <br>
             <nav aria-label="Page navigation example">
-                <ul class="pagination pagination-lg justify-content-center">
-                    @if($article->id > 1)
+                <ul class="pagination justify-content-center pagination-sm">
+                    @if (intval($id) > 1)
                     <li class="page-item">
-                        <a class="page-link" href="/article/{{ intval($article->id) - 1 }}" aria-label="Previous">
+                        <a class="page-link" href="{{ intval($id) - 1 }}" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
+                    <li class="page-item"><a class="page-link" href="{{ intval($id) - 1 }}">{{ intval($id) - 1 }}</a></li>
                     @endif
-                    <!--
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-                    <li class="page-item">
-                        @foreach($articles as $article)
-                        <a class="page-link" href="/article/{{ intval($article->id) + 1 }}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                        @endforeach
-                    </li>
+                    <li class="page-item"><a class="page-link" href="#">{{$id}}</a></li>
+                    @if (intval($id) < $cou) 
+                    <li class="page-item"><a class="page-link" href="{{ intval($id) + 1 }}">{{ intval($id) + 1 }}</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="{{ intval($id) + 1 }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        @endif
                 </ul>
             </nav>
         </div>

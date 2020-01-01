@@ -15,7 +15,8 @@
         "laravel/passport": "^8.1",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
-        "league/oauth2-google": "^3.0"
+        "league/oauth2-google": "^3.0",
+        "league/oauth2-server": "^8.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

@@ -14,18 +14,17 @@
 //use Illuminate\Routing\Route;
 
 use Illuminate\Support\Facades\Route;
+Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
 Route::get('/article/post', 'articlecontroller@post');
 
 Route::post('/article', 'articlecontroller@store');
 
-Route::get('/article/{id}', 'articlecontroller@show');
+Route::get('/article/{id}', 'articlecontroller@show')->name('show');
 
 Route::post('/message/post', 'messagecontroller@create');
 
