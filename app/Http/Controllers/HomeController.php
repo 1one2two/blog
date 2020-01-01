@@ -17,10 +17,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $sortBy = null;
         $agent = new Agent();
         $tasks = DB::table('articles')
                 ->join('users', 'users.id', 'articles.author_id')
                 ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name')
+                ->when($sortBy, function ($query, $sortBy) {
+                    return $query->orderBy($sortBy);
+                }, function ($query) {
+                    return $query->orderBy('id');
+                })
                 ->paginate(5);
         //$tasks = DB::select('SELECT articles.id AS id, SUBSTR(articles.title, 1, 7) AS title, SUBSTR(articles.content, 1, 13) AS content, users.name AS name FROM `articles` INNER JOIN users ON users.id = articles.author_id')->paginate(5);
         return view('home', [ 

@@ -52,7 +52,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     @else
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         Permission denied
                     </div>
                     @endif
@@ -61,7 +61,7 @@
             <br>
             @if (count($msg) > 0)
             <div class="card">
-                <div class="card-body">
+                <div class="card-body"> 
                     @foreach ($msg as $m)
                     <div class="media mb-4">
                         <img class="d-flex mr-3 rounded-circle" src="https://imgur.com/tfE0JLe.jpg" width="50" height="50" alt="">
@@ -76,7 +76,7 @@
             @endif
             <br>
             <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center pagination-sm">
+                <ul class="pagination justify-content-center pagination-lg">
                     @if (intval($id) > 1)
                     <li class="page-item">
                         <a class="page-link" href="{{ intval($id) - 1 }}" aria-label="Previous">

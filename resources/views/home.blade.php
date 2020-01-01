@@ -17,7 +17,7 @@
                     @if (Auth::check() && auth()->user()->authority == "1")
                     <a href="/article/post" class="btn btn-primary btn-center">Post article</a>
                     @else
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         Permission denied
                     </div>
                     @endif
@@ -31,12 +31,12 @@
                     <table class="table table-striped table-light">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Auth</th>
-                                <th scope="col">Title</th>
+                                <th scope="col col-auto">Auth</th>
+                                <th scope="col col-3">Title</th>
                                 @if ( $agent->isDesktop() == "1" )
-                                <th scope="col">Content</th>
+                                <th scope="col col-6">Content</th>
                                 @endif
-                                <th scope="col"></th>
+                                <th scope="col col-lg-2"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +57,7 @@
                                 <td>
                                     <form action="/article/{{ $article->id }}" method="GET">
                                         @csrf
-                                        <button type="submit" class="btn btn-primary">Read</button>
+                                        <button type="submit" class="btn btn-secondary">Read</button>
                                     </form>
                                 </td>
                             </tr>
@@ -66,7 +66,7 @@
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination-sm justify-content-center">
+                        <ul class="pagination pagination-lg justify-content-center">
                             {{ $articles->links() }}
                         </ul>
                     </nav>
