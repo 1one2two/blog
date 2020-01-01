@@ -11,6 +11,13 @@
             </div>
             @endif
 
+            <div class="container">
+                @foreach ($uu as $user)
+                {{ $user->title }} <br>
+                @endforeach
+            </div>
+
+            {{ $uu->links() }}
             <div class="card">
                 <div class="card-header">Article</div>
 
@@ -36,6 +43,7 @@
                 <div class="card-header">Leave a Comment:</div>
 
                 <div class="card-body">
+                    @if (Auth::check() && auth()->user()->authority == "1")
                     <form action="{{ action('messagecontroller@create') }}" method="POST">
                         @csrf
                         <input name="_token" type="hidden" value="{{ csrf_token() }}" />
@@ -50,6 +58,11 @@
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    @else
+                    <div class="alert alert-warning" role="alert">
+                        Permission denied
+                    </div>
+                    @endif
                 </div>
             </div>
             <br>

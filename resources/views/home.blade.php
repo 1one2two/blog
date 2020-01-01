@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">New article</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +14,10 @@
                     </div>
                     @endif
 
-                    @if (auth()->user()->authority == "1")
+                    @if (Auth::check() && auth()->user()->authority == "1")
                     <a href="/article/post" class="btn btn-primary btn-center">Post article</a>
                     @else
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-warning" role="alert">
                         Permission denied
                     </div>
                     @endif
@@ -28,39 +28,48 @@
                 <div class="card-header">Article list</div>
 
                 <div class="card-body">
-                    <table class="table table-striped">
-                        <tr>
-                            <td>Auth</td>
-                            <td>Title</td>
-                            @if ( $agent->isDesktop() == "1" )
-                            <td>Content</td>
+                    <table class="table table-striped table-light">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Auth</th>
+                                <th scope="col">Title</th>
+                                @if ( $agent->isDesktop() == "1" )
+                                <th scope="col">Content</th>
+                                @endif
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (count( $articles ) > 0)
+                            @foreach($articles as $article)
+                            <tr>
+                                <th scope="row">
+                                    {{ $article->name }}
+                                </th>
+                                <td>
+                                    {{ mb_substr( $article->title , 0, 5, "UTF-8") }}
+                                </td>
+                                @if ( $agent->isDesktop() == "1" )
+                                <td>
+                                    {{ mb_substr( $article->content , 0, 18, "UTF-8") }}
+                                </td>
+                                @endif
+                                <td>
+                                    <form action="/article/{{ $article->id }}" method="GET">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary">Read</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                             @endif
-                            <td></td>
-                        </tr>
-                        @if (count( $articles ) > 0)
-                        @foreach($articles as $article)
-                        <tr>
-                            <td>
-                                {{ $article->name }}
-                            </td>
-                            <td>
-                                {{ $article->title }}
-                            </td>
-                            @if ( $agent->isDesktop() == "1" )
-                            <td>
-                                {{ $article->content }}
-                            </td>
-                            @endif
-                            <td>
-                                <form action="/article/{{ $article->id }}" method="GET">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary">Read</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                        @endif
+                        </tbody>
                     </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pagination-sm justify-content-center">
+                            {{ $articles->links() }}
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

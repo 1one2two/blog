@@ -39,6 +39,7 @@ class articlecontroller extends Controller
 
     public function show($id)
     {
+        $users = DB::table('articles')->paginate(5);
         //$tasks = article::orderBy('created_at', 'asc')->get();
         $tasks = DB::select('SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id WHERE articles.id = ' . $id);
         $msg = DB::select('SELECT users.name as name, messages.content FROM `messages` INNER JOIN users ON users.id = messages.user_id   WHERE `article_id` = ' . $id);
@@ -47,7 +48,8 @@ class articlecontroller extends Controller
                 'articles' => $tasks,
                 'msg' => $msg,
                 'id' => $id,
-            ]);
+                'uu' => $users,
+            ]); 
         else {
             return Redirect::to(action('HomeController@index'));
         }
