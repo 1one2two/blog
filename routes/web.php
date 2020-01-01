@@ -28,3 +28,6 @@ Route::post('/article', 'articlecontroller@store');
 Route::get('/article/{id}', 'articlecontroller@show');
 
 Route::post('/message/post', 'messagecontroller@create');
+
+Route::get('/google/auth', 'SocialiteController@redirectToProvider');
+Route::get('/google/auth/callback', 'SocialiteController@handleProviderCallback');
