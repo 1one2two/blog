@@ -11,13 +11,6 @@
             </div>
             @endif
 
-            <div class="container">
-                @foreach ($uu as $user)
-                {{ $user->title }} <br>
-                @endforeach
-            </div>
-
-            {{ $uu->links() }}
             <div class="card">
                 <div class="card-header">Article</div>
 
