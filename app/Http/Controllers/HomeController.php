@@ -21,17 +21,18 @@ class HomeController extends Controller
         $agent = new Agent();
         $tasks = DB::table('articles')
                 ->join('users', 'users.id', 'articles.author_id')
-                ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name')
+                ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.created_at as time')
                 ->when($sortBy, function ($query, $sortBy) {
                     return $query->orderBy($sortBy);
                 }, function ($query) {
                     return $query->orderBy('id');
                 })
-                ->paginate(5);
+                ->paginate(6);
         //$tasks = DB::select('SELECT articles.id AS id, SUBSTR(articles.title, 1, 7) AS title, SUBSTR(articles.content, 1, 13) AS content, users.name AS name FROM `articles` INNER JOIN users ON users.id = articles.author_id')->paginate(5);
         return view('home', [ 
             'articles' => $tasks,
             'agent' => $agent,
+            'i' => 0,
         ]);
     }
     

@@ -13,6 +13,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Fonts -->
     <!-- Scripts -->
+    <link rel="dns-prefetch" href="https://picsum.photos">
     <link rel="dns-prefetch" href="//blogs.toolman.xyz">
     <script src="{{ asset('js/app.js') }}" async></script>
 
@@ -36,6 +37,23 @@
             word-wrap: break-word;
             table-layout: fixed;
             white-space: pre-line;
+        }
+
+        a:link {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #000;
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        a:active {
+            color: #000;
         }
     </style>
 
@@ -83,7 +101,7 @@
                                     Home
                                 </a>
 
-                                <a class="dropdown-item" href="{{ action('articlecontroller@post')  }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ action('messagecontroller@post')  }}" onclick="event.preventDefault();
                                                      document.getElementById('post').submit();">
                                     Post article
                                 </a>
@@ -101,7 +119,7 @@
                                     @csrf
                                 </form>
 
-                                <form id="post" action="{{ action('articlecontroller@post') }}" method="GET" style="display: none;">
+                                <form id="post" action="{{ action('messagecontroller@post') }}" method="GET" style="display: none;">
                                     @csrf
                                 </form>
                             </div>

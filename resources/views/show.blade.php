@@ -19,13 +19,14 @@
                     @foreach($articles as $article)
                     @if ($article->id == $id )
                     <h1 class="mt-4">{{ $article->title }}</h1>
-                    <p class="lead">
+                    <p class="blog-post-meta">
+                        {{ $article->time }}
                         by
                         <a href="#">{{ $article->name }}</a>
                     </p>
                     <hr>
                     <div class="new-line">
-                        {{ $article->content }} 
+                        {{ $article->content }}
                     </div>
                     <br>
                     @endif

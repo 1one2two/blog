@@ -23,6 +23,7 @@
                     @endif
                 </div>
             </div>
+            <!--
             <br>
             <div class="card">
                 <div class="card-header">Article list</div>
@@ -65,27 +66,42 @@
                             @endif
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination-lg justify-content-center">
-                            {{ $articles->links() }}
-                        </ul>
-                    </nav>
+
                 </div>
-            </div>
+            </div>-->
+            <br>
             <div class="card">
+                <div class="card-header">Article list</div>
+
                 <div class="card-body">
+                    <div>This pictures are from <a href="https://picsum.photos/">Lorem Picsum</a></div>
                     <div class="card-columns">
                         @foreach ($articles as $article)
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $article->title }}</h5>
-                                <p class="card-text">{{ mb_substr( $article->content , 0, 18, "UTF-8") }}</p>
-                                <p class="card-text" href="/article/{{ $article->id }}"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <a class="urls" href="/article/{{ $article->id }}">
+                                <img class="card-img-top" href="/article/{{ $article->id }}" src="https://picsum.photos/246/160?random={{ $i++ }}" alt="Card image cap">
+                            </a>
+                            <div class="card-body new-wrap new-wrap1 bd-box">
+                                <a href="/article/{{ $article->id }}">
+                                    <h4>
+                                        {{ mb_substr($article->title , 0, 99, "UTF-8") }}
+                                    </h4>
+                                </a>
+                                <!--<p class="card-text">{{ mb_substr( $article->content , 0, 0, "UTF-8") }}</p>-->
+                                <p class="card-text"><small class="text-muted">Create at {{ $article->time }}</small></p>
+                                <a href="/article/{{ $article->id }}">Read more...
+                                </a>
                             </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-lg justify-content-center">
+                        {{ $articles->links() }}
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

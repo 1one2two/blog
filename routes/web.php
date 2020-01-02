@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/article/post', 'articlecontroller@post');
+Route::get('/article/post', 'messagecontroller@post');
 
 Route::post('/article', 'articlecontroller@store');
 

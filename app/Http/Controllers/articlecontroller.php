@@ -11,14 +11,6 @@ use SebastianBergmann\Environment\Console;
 
 class articlecontroller extends Controller
 {
-    public function post()
-    {
-        $articles = DB::select("SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id");
-        return view('post', [
-            'articles' => $articles,
-        ]);
-    }
-
     public function store()
     {
         $data = request()->validate([
@@ -43,7 +35,7 @@ class articlecontroller extends Controller
         $articles = DB::table('articles')
             ->where('articles.id', '=', ($id))
             ->join('users', 'users.id', 'articles.author_id')
-            ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name')
+            ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.created_at as time')
             ->get();
 
         $cou = DB::table('articles')
@@ -64,4 +56,10 @@ class articlecontroller extends Controller
             return Redirect::to(action('HomeController@index'));
         }
     }
+
+    /*
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }//*/
 }

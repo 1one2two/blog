@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('article_id');
             $table->integer('user_id');
-            $table->text('content');
+            $table->longText('content');
             $table->integer('like');
             $table->integer('dislike');
             $table->timestamps();

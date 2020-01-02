@@ -16,8 +16,8 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function ($table) {
             $table->increments('id');
             $table->unsignedInteger('author_id')->index();
-            $table->string('title');
-            $table->string('content');
+            $table->longText('title');
+            $table->longText('content');
             $table->timestamps();
         });
 
