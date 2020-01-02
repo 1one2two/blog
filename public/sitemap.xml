@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://blog.toolman.xyz:1225/</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/login</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/register</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/8</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/9</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/10</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/11</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/12</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/13</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/password/reset</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/home</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/14</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/home?page=2</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/home?page=3</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/15</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/16</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/17</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/18</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/19</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/home?page=1</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/20</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/21</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/22</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/23</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>http://blog.toolman.xyz:1225/article/24</loc>
+  <lastmod>2020-01-02T19:47:22+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>

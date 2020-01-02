@@ -10,7 +10,7 @@
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                        {{ session('status') }} Where is this?
                     </div>
                     @endif
 
@@ -77,9 +77,9 @@
                     <div>This pictures are from <a href="https://picsum.photos/">Lorem Picsum</a></div>
                     <div class="card-columns">
                         @foreach ($articles as $article)
-                        <div class="card">
+                        <div class="card" data-link="/article/{{ $article->id }}">
                             <a class="urls" href="/article/{{ $article->id }}">
-                                <img class="card-img-top" href="/article/{{ $article->id }}" src="https://picsum.photos/246/160?random={{ $i++ }}" alt="Card image cap">
+                                <img class="card-img-top" width="246" height="160" src="https://picsum.photos/246/160?random={{ $i++ }}" alt="Card image cap">
                             </a>
                             <div class="card-body new-wrap new-wrap1 bd-box">
                                 <a href="/article/{{ $article->id }}">

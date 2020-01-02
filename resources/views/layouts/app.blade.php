@@ -1,4 +1,5 @@
 <!doctype html>
+<html ⚡>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -13,6 +14,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Fonts -->
     <!-- Scripts -->
+    <link rel="canonical" href="{{ asset('') }}">
     <link rel="dns-prefetch" href="https://picsum.photos">
     <link rel="dns-prefetch" href="//blogs.toolman.xyz">
     <script src="{{ asset('js/app.js') }}" async></script>
@@ -22,8 +24,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" async>
-
-    <style type="text/css">
+    <style amp-custom type="text/css">
         .p1 {
             -webkit-line-clamp: 1;
             overflow: hidden;
@@ -57,7 +58,7 @@
         }
     </style>
 
-    <link rel="apple-touch-icon" href="/download.png" defer>
+    <link rel="apple-touch-icon" href="/download.png">
 </head>
 
 <body>
