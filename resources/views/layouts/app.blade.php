@@ -30,6 +30,13 @@
             -webkit-box-orient: vertical;
             white-space: normal;
         }
+
+        .new-line {
+            word-break: break-all;
+            word-wrap: break-word;
+            table-layout: fixed;
+            white-space: pre-line;
+        }
     </style>
 
     <link rel="apple-touch-icon" href="/download.png" defer>
@@ -71,14 +78,19 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
                                 <a class="dropdown-item" href="{{ action('HomeController@index')  }}" onclick="event.preventDefault();
                                                      document.getElementById('homes').submit();">
                                     Home
+                                </a>
+
+                                <a class="dropdown-item" href="{{ action('articlecontroller@post')  }}" onclick="event.preventDefault();
+                                                     document.getElementById('post').submit();">
+                                    Post article
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -86,6 +98,10 @@
                                 </form>
 
                                 <form id="homes" action="{{ action('HomeController@index') }}" method="GET" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <form id="post" action="{{ action('articlecontroller@post') }}" method="GET" style="display: none;">
                                     @csrf
                                 </form>
                             </div>

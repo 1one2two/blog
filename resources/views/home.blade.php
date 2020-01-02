@@ -72,6 +72,21 @@
                     </nav>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-columns">
+                        @foreach ($articles as $article)
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $article->title }}</h5>
+                                <p class="card-text">{{ mb_substr( $article->content , 0, 18, "UTF-8") }}</p>
+                                <p class="card-text" href="/article/{{ $article->id }}"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

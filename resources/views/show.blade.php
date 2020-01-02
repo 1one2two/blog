@@ -23,7 +23,11 @@
                         by
                         <a href="#">{{ $article->name }}</a>
                     </p>
-                    <hr> {{ $article->content }} <br>
+                    <hr>
+                    <div class="new-line">
+                        {{ $article->content }} 
+                    </div>
+                    <br>
                     @endif
                     @endforeach
                     @else
@@ -61,7 +65,7 @@
             <br>
             @if (count($msg) > 0)
             <div class="card">
-                <div class="card-body"> 
+                <div class="card-body">
                     @foreach ($msg as $m)
                     <div class="media mb-4">
                         <img class="d-flex mr-3 rounded-circle" src="https://imgur.com/tfE0JLe.jpg" width="50" height="50" alt="">
@@ -87,8 +91,7 @@
                     <li class="page-item"><a class="page-link" href="{{ intval($id) - 1 }}">{{ intval($id) - 1 }}</a></li>
                     @endif
                     <li class="page-item"><a class="page-link" href="#">{{$id}}</a></li>
-                    @if (intval($id) < $cou) 
-                    <li class="page-item"><a class="page-link" href="{{ intval($id) + 1 }}">{{ intval($id) + 1 }}</a></li>
+                    @if (intval($id) < $cou) <li class="page-item"><a class="page-link" href="{{ intval($id) + 1 }}">{{ intval($id) + 1 }}</a></li>
                         <li class="page-item">
                             <a class="page-link" href="{{ intval($id) + 1 }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
