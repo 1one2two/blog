@@ -12,17 +12,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+
     <!-- Fonts -->
-    <!-- Scripts -->
+    <link rel="dns-prefetch" href="//picsum.photos">
     <link rel="canonical" href="{{ asset('') }}">
-    <link rel="dns-prefetch" href="https://picsum.photos">
     <link rel="dns-prefetch" href="//blogs.toolman.xyz">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" async></script>
 
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" async>
-
     <!-- Styles -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" async> -->
+    <link ref="stylesheet" type="text/css" href="dist/snackbar.min.css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" async>
     <style amp-custom type="text/css">
         .p1 {
@@ -59,6 +61,14 @@
     </style>
 
     <link rel="apple-touch-icon" href="/download.png">
+
+    <script>
+        $('#button').click(function() {
+            Snackbar.show({
+                text: 'Example notification text.'
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -132,6 +142,7 @@
         </nav>
 
         <main class="py-4">
+            {!! Toastr::render() !!}
             @yield('content')
         </main>
     </div>

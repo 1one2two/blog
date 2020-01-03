@@ -5,14 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             @error('title')
-            <class class="alert alert-danger" role="alert">{{ $message }}</class>
-            <br><br>
+            <div class="alert alert-danger alert-block" role="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
             @enderror
             
             @error('content')
-            <br>
-            <class class="alert alert-danger" role="alert">{{ $message }}</class>
-            <br><br>
+            <div class="alert alert-danger alert-block" role="alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
             @enderror
             <div class="card card-new-task">
                 <div class="card-header">Post article</div>

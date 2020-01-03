@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Toastr;
 use Redirect;
 use App\article;
 use Jenssegers\Agent\Agent;
@@ -31,6 +32,7 @@ class articlecontroller extends Controller
 
     public function show($id)
     {
+
         //$tasks = article::orderBy('created_at', 'asc')->get();
         $articles = DB::table('articles')
             ->where('articles.id', '=', ($id))
