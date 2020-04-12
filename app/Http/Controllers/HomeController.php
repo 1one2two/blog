@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\article;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Jenssegers\Agent\Agent;
+
 class HomeController extends Controller
 {
-    
+
 
     /**
      * Show the application dashboard.
@@ -17,25 +17,42 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sortBy = null;
-        $agent = new Agent();
-        $tasks = DB::table('articles')
-                ->join('users', 'users.id', 'articles.author_id')
-                ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.created_at as time')
-                ->when($sortBy, function ($query, $sortBy) {
-                    return $query->orderBy($sortBy);
-                }, function ($query) {
-                    return $query->orderBy('id');
-                })
-                ->paginate(6);
+        /*
+
+        SELECT a.id AS id, a.title as title, a.created_at as time, c.name as name, COALESCE(COUNT(b.id),0) AS cou
+        FROM blog_articles as a
+        LEFT JOIN blog_messages as b on a.id = b.article_id
+        LEFT JOIN blog_users as c on c.id = a.author_id
+        GROUP BY a.id;
+
+        */
+
+        // $articles = DB::raw('SELECT blog_articles.id AS id, blog_articles.title as title, blog_articles.created_at as time, blog_users.name as name, COALESCE(COUNT(blog_messages.id),0) AS cou FROM blog_articles LEFT JOIN blog_messages on blog_articles.id = blog_messages.article_id LEFT JOIN blog_users on blog_users.id = blog_articles.author_id GROUP BY blog_articles.id ORDER BY blog_articles.id DESC');
+        // $articles = DB::select($articles);
+
+        //        $articles = DB::select('SELECT blog_articles.id AS id, blog_articles.title as title, blog_articles.created_at as time, blog_users.name as name, COALESCE(COUNT(blog_messages.id),0) AS cou FROM blog_articles LEFT JOIN blog_messages on blog_articles.id = blog_messages.article_id LEFT JOIN blog_users on blog_users.id = blog_articles.author_id GROUP BY blog_articles.id ORDER BY blog_articles.id DESC;')
+        //                    ->paginate(16);
+        $articles = DB::table('articles')
+            ->select(
+                'articles.id as id',
+                'users.name as name',
+                'articles.title as title',
+                'articles.content as content',
+                DB::raw('SUBSTR(blog_articles.created_at, 1, 10) as time'),
+                DB::raw('COALESCE(COUNT(blog_messages.id),0) AS cou')
+            )
+            ->leftJoin('messages', 'messages.article_id', 'articles.id')
+            ->leftJoin('users', 'users.id', 'articles.author_id')
+            ->groupBy('articles.id')
+            ->orderBy('articles.id', 'desc')
+            ->paginate(12);
+
         //$tasks = DB::select('SELECT articles.id AS id, SUBSTR(articles.title, 1, 7) AS title, SUBSTR(articles.content, 1, 13) AS content, users.name AS name FROM `articles` INNER JOIN users ON users.id = articles.author_id')->paginate(5);
-        return view('home', [ 
-            'articles' => $tasks,
-            'agent' => $agent,
+        return view('home', [
+            'articles' => $articles,
             'i' => 0,
         ]);
     }
-    
 }
 
 

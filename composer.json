@@ -18,7 +18,9 @@
         "league/oauth2-google": "^3.0",
         "league/oauth2-server": "^8.0",
         "mdcnette/snackbar": "^1.3",
-        "nilsenj/toastr-laravel": "dev-1.0-stable"
+        "monolog/monolog": "^2.0",
+        "nilsenj/toastr-laravel": "dev-1.0-stable",
+        "swooletw/laravel-swoole": "^2.6"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

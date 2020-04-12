@@ -3,24 +3,24 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             @error('title')
             <div class="alert alert-danger alert-block" role="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
             </div>
             @enderror
-            
+
             @error('content')
             <div class="alert alert-danger alert-block" role="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
             </div>
             @enderror
-            <div class="card card-new-task">
-                <div class="card-header">Post article</div>
+            <div class="card border-light">
+                <div class="card-header" style="background-color: #f8f9fc; font-size: 1.5rem; line-height: 1.35;">Post article</div>
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #f8f9fc">
                     <form action="/article" method="POST">
                         @csrf
                         <div class="form-group">
@@ -30,14 +30,36 @@
 
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" rows="3" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content"></textarea>
+                            <textarea class="form-control" rows="10" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Create article</button>
+
+
+                        <section class="section-preview">
+                            @foreach ($tg as $t)
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="inp_{{ $t->t }}" name="{{ $t->t }}">
+                                <label class="custom-control-label" for="inp_{{ $t->t }}">{{ $t->t }}</label>
+                            </div>
+                            @endforeach
+                        </section>
+
+                        <button type="submit" class="btn btn-primary" style="margin: 25px 0px;">Create article</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('styles')
+    <!-- <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" /> -->
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" /> -->
+@endsection
+
+@section('scripts')
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
+    <script src="{{asset('js/quill-custom.js')}}"></script>
 @endsection

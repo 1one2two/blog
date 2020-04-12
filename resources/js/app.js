@@ -8,6 +8,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// require('./quill.js');
+
+// window.Vue = require('Quill');
+
+// import Quill from 'quill';
+
+// Vue.use(Quill);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

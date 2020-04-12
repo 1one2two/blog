@@ -21,9 +21,13 @@ class messagecontroller extends Controller
     
     public function post()
     {
-        $articles = DB::select("SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id");
-        return view('post', [
+        // $articles = DB::select("SELECT blog_articles.id as id, blog_articles.title, blog_articles.content, blog_users.name FROM `blog_articles` INNER JOIN blog_users ON blog_users.id = blog_articles.author_id");
+        $tg = DB::select("SELECT * FROM `blog_tags`");
+        /* return view('post', [
             'articles' => $articles,
+        ]); */
+        return view('post', [
+            'tg' => $tg,
         ]);
     }
 

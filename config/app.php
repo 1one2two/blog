@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'ToolmanBlog',
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Taipei',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,8 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-				nilsenj\Toastr\ToastrServiceProvider::class,
-
+//	nilsenj\Toastr\ToastrServiceProvider::class,
+//	SwooleTW\Http\LaravelServiceProvider::class,
     ],
 
     /*
@@ -227,13 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Toastr' => 'nilsenj\Toastr\Facades\Toastr',
+//        'Toastr' => 'nilsenj\Toastr\Facades\Toastr',
 
     ],
-
-    'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),         // Your Google Client ID
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'), // Your Google Client Secret
-        'redirect' => 'http://blog.toolman.xyz/google/auth',
-    ],
+    
 ];

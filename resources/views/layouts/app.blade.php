@@ -1,6 +1,5 @@
 <!doctype html>
 <html ⚡>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -8,23 +7,32 @@
     <meta name="theme-color" content="red">
     <meta name="description" content="A simple blog make by laravel.">
 
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- Include stylesheet -->
+    <!-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> -->
+    <!-- Include the Quill library -->
+    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
+
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>toolman xyz</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//picsum.photos">
-    <link rel="canonical" href="{{ asset('') }}">
-    <link rel="dns-prefetch" href="//blogs.toolman.xyz">
+    <link rel="dns-prefetch" href="//blog.toolman.xyz">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- Ads -->
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" async></script>
 
     <!-- Styles -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" async> -->
-    <link ref="stylesheet" type="text/css" href="dist/snackbar.min.css" />
+    <link href="http://www.bootstrapicons.com/files/css/bootstrap.min.css" rel="stylesheet" async>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" async>
     <style amp-custom type="text/css">
         .p1 {
@@ -60,20 +68,13 @@
         }
     </style>
 
-    <link rel="apple-touch-icon" href="/download.png">
+    <link rel="apple-touch-icon" href="/download.png" async>
 
-    <script>
-        $('#button').click(function() {
-            Snackbar.show({
-                text: 'Example notification text.'
-            });
-        });
-    </script>
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -83,13 +84,18 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <form class="form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" style="padding: 0.5rem; border: 0px;" aria-label="Something...">
+                                    <div class="input-group-append">
+                                        <button type="button" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button>
+                                    </div>
+                                    <!-- <button class="urls" style="padding: 0px, 0.5rem; border: none; background: none; color: rgba(0,0,0,.5); font-family: nunito,sans-serif; font-size: .9rem;" type="submit">Search</button> -->
+                            </form>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
@@ -142,12 +148,9 @@
         </nav>
 
         <main class="py-4">
-            {!! Toastr::render() !!}
             @yield('content')
         </main>
     </div>
 </body>
-
-
 
 </html>
