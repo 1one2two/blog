@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\article;
+use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,15 @@ class HomeController extends Controller
 
         //        $articles = DB::select('SELECT blog_articles.id AS id, blog_articles.title as title, blog_articles.created_at as time, blog_users.name as name, COALESCE(COUNT(blog_messages.id),0) AS cou FROM blog_articles LEFT JOIN blog_messages on blog_articles.id = blog_messages.article_id LEFT JOIN blog_users on blog_users.id = blog_articles.author_id GROUP BY blog_articles.id ORDER BY blog_articles.id DESC;')
         //                    ->paginate(16);
+        $ti = new DateTime();
+        DB::table('user_visit_log')->insert(array(
+            'User-Agent' => request()->header('User-Agent', ""),
+            'Ip' => request()->ip(),
+            'Referer' => request()->header('Referer', ""),
+            'Target' => '0',
+            'created_at' => $ti->format('Y-m-d H:i:s'),
+            'updated_at' => $ti->format('Y-m-d H:i:s'),
+        ));
         $articles = DB::table('articles')
             ->select(
                 'articles.id as id',

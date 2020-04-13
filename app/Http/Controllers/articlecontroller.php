@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Toastr;
 use Redirect;
 use App\article;
+use DateTime;
 use Jenssegers\Agent\Agent;
 use Request;
 use Illuminate\Support\Facades\DB;
@@ -43,16 +44,24 @@ class articlecontroller extends Controller
 
         return redirect('/article/' . $art->id);
     }
-    
+
     public function show($id)
     {
-        //$tasks = article::orderBy('created_at', 'asc')->get(); 123
+        $ti = new DateTime();
+        DB::table('user_visit_log')->insert(array(
+            'User-Agent' => request()->header('User-Agent', ""),
+            'Ip' => request()->ip(),
+            'Referer' => request()->header('Referer', ""),
+            'Target' => $id,
+            'created_at' => $ti->format('Y-m-d H:i:s'),
+            'updated_at' => $ti->format('Y-m-d H:i:s'),
+        ));
+
         $articles = DB::table('articles')
             ->where('articles.id', '=', ($id))
             ->join('users', 'users.id', 'articles.author_id')
             ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.created_at as time')
             ->get();
-            // ->paginate(1);
 
         $cou = DB::table('articles')->count();
 
@@ -60,11 +69,11 @@ class articlecontroller extends Controller
         $msg = DB::select('SELECT blog_users.name as name, blog_messages.content FROM `blog_messages` INNER JOIN blog_users ON blog_users.id = blog_messages.user_id WHERE `article_id` = ' . $id);
 
         $tg = DB::select('SELECT blog_tags.t as tg FROM blog_article_tags INNER JOIN blog_tags ON blog_article_tags.tag_id=blog_tags.id WHERE blog_article_tags.art_id = ' . $id);
-        $tg_ = DB::table('article_tags')
-            ->where('art_id', '=', $id)
-            ->join('tags', 'tags.id', 'article_tags.art_id')
-            ->select('tags.t as tg')
-            ->get();
+        // $tg_ = DB::table('article_tags')
+        //     ->where('art_id', '=', $id)
+        //     ->join('tags', 'tags.id', 'article_tags.art_id')
+        //     ->select('tags.t as tg')
+        //     ->get();
 
         if (count($articles) > 0) {
             return view('show', [

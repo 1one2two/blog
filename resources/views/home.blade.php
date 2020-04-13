@@ -11,7 +11,7 @@
                     <!-- <div>This pictures are from <a href="https://picsum.photos/">Lorem Picsum</a></div> -->
                     <div class="card-columns">
                         @foreach ($articles as $article)
-                        <div class="">
+                        <div class="rounded-lg border border-light">
                             <div class="card" data-link="/article/{{ $article->id }}">
                                 <a class="urls" href="/article/{{ $article->id }}">
                                     <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="Images from Lorem Picsum"></img>
