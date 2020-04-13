@@ -52,7 +52,7 @@ class articlecontroller extends Controller
             'User-Agent' => request()->header('User-Agent', ""),
             'Ip' => request()->ip(),
             'Referer' => request()->header('Referer', ""),
-            'Target' => $id,
+            'Target' => request()->fullUrl(),
             'created_at' => $ti->format('Y-m-d H:i:s'),
             'updated_at' => $ti->format('Y-m-d H:i:s'),
         ));
