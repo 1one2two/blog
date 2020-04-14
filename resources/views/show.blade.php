@@ -11,7 +11,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-
             @if ($message = Session::get('status'))
             <div class="alert alert-success alert-block" role="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -52,63 +51,87 @@
             </div>
             <br>
             <div class="card border-light">
-                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">Comment</div>
+                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">Read More</div>
 
-                <div class="card-body blog-post" style="background-color: #f8f9fc;">
-                    @if (Auth::check() && auth()->user()->authority == "1")
-                    <form action="{{ action('messagecontroller@create') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3" name="content" id="exampleInputcontent" aria-describedby="contentHelp"></textarea>
-                        </div>
-
-                        @error('content')
-                        <small class="text-danger">{{ $message }}<br></small>
-                        @enderror
-                        <input type="hidden" name="article_id" value="{{ $id }}"></input>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    @else
-                    <a href="{{ route('login') }}" class="btn btn-light" style="width: 100%; text-align:center;">Login to continue.</a>
-                    @endif
-                    <hr style="margin: 15px 0px 20px 0px;">
-                    <!-- <div class="py-2"></div> -->
-                    @foreach ($msg as $m)
-                    <div class="media mb-4">
-                        <img class="d-flex mr-3 rounded-circle" src="https://imgur.com/tfE0JLe.jpg" width="50" height="50" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">{{ $m->name }}</h5>
-                            <div class="new-line">{{ $m->content }}</div>
-                        </div>
+                <div class="card-body" style="background-color: #f8f9fc;">
+                    <div class="card-columns" style="column-count: 2;">
+                        @for ($i = 0; $i < 6; $i++) <div class="card mb-3" style="max-width: 430px; max-height: 266px;">
+                            <div class="row no-gutters">
+                                <div class="col-md-5">
+                                    <img src="https://picsum.photos/170/105?random={{ $i }}" alt="Images from Lorem Picsum" class="card-img" width="170" height="105">
+                                </div>
+                                <div class="col-md-5">
+                                    @foreach($articles as $article)
+                                    @if ($article->id == $id )
+                                    <p class="card-text p-2">{{ $article->title }}</p>
+                                    @endif
+                                    @endforeach
+                                </div>
+                            </div>
                     </div>
-                    @endforeach
+                    @endfor
                 </div>
             </div>
-            <br>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center pagination-lg">
-                    @if (intval($id) > 1)
+        </div>
+        <br>
+        <div class="card border-light">
+            <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">Comment</div>
+
+            <div class="card-body blog-post" style="background-color: #f8f9fc;">
+                @if (Auth::check() && auth()->user()->authority == "1")
+                <form action="{{ action('messagecontroller@create') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" name="content" id="exampleInputcontent" aria-describedby="contentHelp"></textarea>
+                    </div>
+
+                    @error('content')
+                    <small class="text-danger">{{ $message }}<br></small>
+                    @enderror
+                    <input type="hidden" name="article_id" value="{{ $id }}"></input>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                @else
+                <a href="{{ route('login') }}" class="btn btn-light" style="width: 100%; text-align:center;">Login to continue.</a>
+                @endif
+                <hr style="margin: 15px 0px 20px 0px;">
+                <!-- <div class="py-2"></div> -->
+                @foreach ($msg as $m)
+                <div class="media mb-4">
+                    <img class="d-flex mr-3 rounded-circle" src="https://imgur.com/tfE0JLe.jpg" width="50" height="50" alt="">
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ $m->name }}</h5>
+                        <div class="new-line">{{ $m->content }}</div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <br>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center pagination-lg">
+                @if (intval($id) > 1)
+                <li class="page-item">
+                    <a class="page-link" href="{{ intval($id) - 1 }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="{{ intval($id) - 1 }}">{{ intval($id) - 1 }}</a></li>
+                @endif
+                <li class="page-item"><a class="page-link" href="#">{{$id}}</a></li>
+                @if (intval($id) < $cou) <li class="page-item"><a class="page-link" href="{{ intval($id) + 1 }}">{{ intval($id) + 1 }}</a></li>
                     <li class="page-item">
-                        <a class="page-link" href="{{ intval($id) - 1 }}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
+                        <a class="page-link" href="{{ intval($id) + 1 }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="{{ intval($id) - 1 }}">{{ intval($id) - 1 }}</a></li>
                     @endif
-                    <li class="page-item"><a class="page-link" href="#">{{$id}}</a></li>
-                    @if (intval($id) < $cou) <li class="page-item"><a class="page-link" href="{{ intval($id) + 1 }}">{{ intval($id) + 1 }}</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="{{ intval($id) + 1 }}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </nav>
-        </div>
+            </ul>
+        </nav>
     </div>
 </div>
+<!-- </div> -->
 @endsection
