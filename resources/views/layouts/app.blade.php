@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="red">
+    <meta name="theme-color" content="white">
     <meta name="description" content="A simple blog make by laravel.">
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -87,11 +87,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <form class="form">
+                            <form class="form" action="/" method="GET">
+                                @csrf
                                 <div class="input-group">
-                                    <input type="text" class="form-control" style="padding: 0.5rem; border: 0px;" aria-label="Something...">
+                                    <input type="text" class="form-control" style="padding: 0.5rem; border: 0px;" aria-label="Something..." name="v">
                                     <div class="input-group-append">
-                                        <button type="button" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button>
+                                        <button type="submit" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button>
                                     </div>
                                     <!-- <button class="urls" style="padding: 0px, 0.5rem; border: none; background: none; color: rgba(0,0,0,.5); font-family: nunito,sans-serif; font-size: .9rem;" type="submit">Search</button> -->
                             </form>

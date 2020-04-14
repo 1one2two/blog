@@ -42,6 +42,12 @@ class HomeController extends Controller
             'created_at' => $ti->format('Y-m-d H:i:s'),
             'updated_at' => $ti->format('Y-m-d H:i:s'),
         ));
+
+        // dd(request()->(v, ""));
+        $v = "";
+        if (request()->v) {
+            $v = request()->v;
+        }
         $articles = DB::table('articles')
             ->select(
                 'articles.id as id',
@@ -51,6 +57,8 @@ class HomeController extends Controller
                 DB::raw('SUBSTR(blog_articles.created_at, 1, 10) as time'),
                 DB::raw('COALESCE(COUNT(blog_messages.id),0) AS cou')
             )
+            ->where('articles.title', 'LIKE', '%' . $v . '%')
+            ->orWhere('articles.content', 'LIKE', '%' . $v . '%')
             ->leftJoin('messages', 'messages.article_id', 'articles.id')
             ->leftJoin('users', 'users.id', 'articles.author_id')
             ->groupBy('articles.id')
