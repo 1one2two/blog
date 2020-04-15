@@ -55,20 +55,21 @@
 
                 <div class="card-body" style="background-color: #f8f9fc;">
                     <div class="card-columns" style="column-count: 2;">
-                        @for ($i = 0; $i < 6; $i++) <div class="card mb-3" style="max-width: 430px; max-height: 266px;">
-                            <div class="row no-gutters">
-                                <div class="col-md-5">
-                                    <img src="https://picsum.photos/170/105?random={{ $i }}" alt="Images from Lorem Picsum" class="card-img" width="170" height="105">
+                    @for ($i = 0; $i < 6; $i++) 
+                        <div class="card mb-3" style="background-color: #f8f9fc;">
+                            <div class="row" style="background-color: #f8f9fc;">
+                                <div class="col-lg-5" style="background-color: #f8f9fc;">
+                                    <img src="https://picsum.photos/300/185?random={{ $i }}" class="card-img h-100">
                                 </div>
-                                <div class="col-md-5">
-                                    @foreach($articles as $article)
-                                    @if ($article->id == $id )
-                                    <p class="card-text p-2">{{ $article->title }}</p>
-                                    @endif
-                                    @endforeach
+                                <div class="col-lg-7">
+                                @foreach($articles as $article)
+                                @if ($article->id == $id )
+                                <p class="p-2" style="background-color: #f8f9fc; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 300px; max-height:80px;">{{ $article->title }}</p>
+                                @endif
+                                @endforeach
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     @endfor
                 </div>
             </div>

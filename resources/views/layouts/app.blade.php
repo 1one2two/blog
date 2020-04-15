@@ -89,7 +89,7 @@
                         <li class="nav-item">
                             <form action="/" method="GET" style="height: 39px;">
                                 @csrf
-                                <div class="mt-1 rounded-lg" style="border:2px solid #c3ccd5; display:inline-block;">
+                                <div class="mt-1 rounded-lg mr-1" style="border:2px solid #c3ccd5; display:inline-block;">
                                     <input type="text" class="" style="padding: 0rem; border: 0px;" aria-label="Something..." name="v">
                                     <button type="submit" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button>
                                     <!-- <button class="urls" style="padding: 0px, 0.5rem; border: none; background: none; color: rgba(0,0,0,.5); font-family: nunito,sans-serif; font-size: .9rem;" type="submit">Search</button> -->
