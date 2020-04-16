@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card border-light">
-                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">Article List</div>
+                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">ARTICLE LIST</div>
                 <div class="py-2" style="background-color: #f8f9fc;"></div>
                 <div class="card-body p-2" style="background-color: #f8f9fc">
                     <!-- <div>This pictures are from <a href="https://picsum.photos/">Lorem Picsum</a></div> -->
@@ -18,11 +18,11 @@
                                 </a>
                                 <div class="card-body" style="background-color: #f8f9fc;">
                                     <a href="/article/{{ $article->id }}">
-                                        <div style="height: 140px">
-                                            <h4 style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 300px; min-height:75px;">
+                                        <div style="height: 120px">
+                                            <h4 style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 320px; min-height:75px;">
                                                 {{ $article->title }}
                                             </h4>
-                                            <div class="pt-0 font-weight-light">
+                                            <div class="pt-2 font-weight-light">
                                                 <div class="ml-1 float-left">
                                                     <svg height="12px" viewBox="0 0 384 384" width="12px" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="m343.59375 101.039062c-7.953125 3.847657-11.28125 13.417969-7.433594 21.367188 10.511719 21.714844 15.839844 45.121094 15.839844 69.59375 0 88.222656-71.777344 160-160 160s-160-71.777344-160-160 71.777344-160 160-160c36.558594 0 70.902344 11.9375 99.328125 34.519531 6.894531 5.503907 16.976563 4.351563 22.480469-2.566406 5.503906-6.914063 4.351562-16.984375-2.570313-22.480469-33.652343-26.746094-76-41.472656-119.238281-41.472656-105.863281 0-192 86.136719-192 192s86.136719 192 192 192 192-86.136719 192-192c0-29.335938-6.40625-57.449219-19.039062-83.527344-3.839844-7.96875-13.441407-11.289062-21.367188-7.433594zm0 0" />
@@ -58,9 +58,9 @@
                                                     <a href="/article/{{ $article->id }}" target=""> {{ $article->cou }} </a>
                                                 </div>
                                             </div>
-                                            <div class="mr-1 mt-5 font-weight-bold text-right">
+                                            <!-- <div class="mr-1 mt-5 font-weight-bold text-right">
                                                 <a href="/article/{{ $article->id }}">Read more >></a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </a>
                                 </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="py-2" style="background-color: #f8f9fc"></div>
                 <div class="card border-light">
-                    <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">Post article</div>
+                    <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">POST ARTICLE</div>
 
                     <div class="card-body" style="background-color: #f8f9fc">
                         @if (Auth::check() && auth()->user()->authority == "1")

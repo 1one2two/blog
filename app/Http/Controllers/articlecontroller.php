@@ -50,7 +50,7 @@ class articlecontroller extends Controller
         $ti = new DateTime();
         DB::table('user_visit_log')->insert(array(
             'User-Agent' => request()->header('User-Agent', ""),
-            'Ip' => request()->ip(),
+            'Ip' => $_SERVER["HTTP_CF_IPCOUNTRY"],
             'Referer' => request()->header('Referer', ""),
             'Target' => request()->fullUrl(),
             'created_at' => $ti->format('Y-m-d H:i:s'),
@@ -62,6 +62,9 @@ class articlecontroller extends Controller
             ->join('users', 'users.id', 'articles.author_id')
             ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.created_at as time')
             ->get();
+
+        $more_articles = DB::table('articles')
+            ->select('articles.id as id', 'title as title', 'articles.created_at as time')->inRandomOrder()->limit(6)->get();
 
         $cou = DB::table('articles')->count();
 
@@ -78,10 +81,12 @@ class articlecontroller extends Controller
         if (count($articles) > 0) {
             return view('show', [
                 'articles' => $articles,
+                'more_articles' => $more_articles,
                 'cou' => $cou,
                 'msg' => $msg,
                 'id' => $id,
                 'tg' => $tg,
+                'i' => 0,
             ]);
         } else {
             return Redirect::to(action('HomeController@index'));

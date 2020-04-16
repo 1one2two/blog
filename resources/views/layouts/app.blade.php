@@ -25,6 +25,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Ads -->
+    <script data-ad-client="ca-pub-1041011272242969" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" async></script>
@@ -32,7 +33,7 @@
 
     <!-- Styles -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" async> -->
-    <link href="http://www.bootstrapicons.com/files/css/bootstrap.min.css" rel="stylesheet" async>
+    <!-- <link href="http://www.bootstrapicons.com/files/css/bootstrap.min.css" rel="stylesheet" async> -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" async>
     <style amp-custom type="text/css">
         .p1 {
@@ -77,7 +78,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    toolman xyz
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -89,8 +90,8 @@
                         <li class="nav-item">
                             <form action="/" method="GET" style="height: 39px;">
                                 @csrf
-                                <div class="mt-1 rounded-lg mr-1" style="border:2px solid #c3ccd5; display:inline-block;">
-                                    <input type="text" class="" style="padding: 0rem; border: 0px;" aria-label="Something..." name="v">
+                                <div class="mt-1 rounded-lg mr-1" style="border:2px solid #c3ccd5; display:inline-block; border-radius:10px;">
+                                    <input type="text" class="pl-2 pr-2" style="padding: 0rem; border: 0px;" aria-label="Something..." name="v">
                                     <button type="submit" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button>
                                     <!-- <button class="urls" style="padding: 0px, 0.5rem; border: none; background: none; color: rgba(0,0,0,.5); font-family: nunito,sans-serif; font-size: .9rem;" type="submit">Search</button> -->
                                 </div>
@@ -101,7 +102,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
+                        @if (Route::has('register_'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>

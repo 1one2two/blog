@@ -26,6 +26,13 @@ class HomeController extends Controller
         LEFT JOIN blog_users as c on c.id = a.author_id
         GROUP BY a.id;
 
+        SELECT a.id AS id, a.title as title, a.created_at as time, c.name as name, COALESCE(COUNT(b.id),0) AS cou
+        FROM blog_articles as a
+        LEFT JOIN blog_messages as b on a.id = b.article_id
+        LEFT JOIN blog_users as c on c.id = a.author_id
+        LEFT JOIN blog_user_visit_log as d on d.Target = a.id
+        GROUP BY a.id;
+
         */
 
         // $articles = DB::raw('SELECT blog_articles.id AS id, blog_articles.title as title, blog_articles.created_at as time, blog_users.name as name, COALESCE(COUNT(blog_messages.id),0) AS cou FROM blog_articles LEFT JOIN blog_messages on blog_articles.id = blog_messages.article_id LEFT JOIN blog_users on blog_users.id = blog_articles.author_id GROUP BY blog_articles.id ORDER BY blog_articles.id DESC');
@@ -36,7 +43,7 @@ class HomeController extends Controller
         $ti = new DateTime();
         DB::table('user_visit_log')->insert(array(
             'User-Agent' => request()->header('User-Agent', ""),
-            'Ip' => request()->ip(),
+            'Ip' => $_SERVER["HTTP_CF_IPCOUNTRY"],
             'Referer' => request()->header('Referer', ""),
             'Target' => request()->fullUrl(),
             'created_at' => $ti->format('Y-m-d H:i:s'),
@@ -55,7 +62,7 @@ class HomeController extends Controller
                 'articles.title as title',
                 'articles.content as content',
                 DB::raw('SUBSTR(blog_articles.created_at, 1, 10) as time'),
-                DB::raw('COALESCE(COUNT(blog_messages.id),0) AS cou')
+                DB::raw('COUNT(blog_messages.id) AS cou')
             )
             ->where('articles.title', 'LIKE', '%' . $v . '%')
             ->orWhere('articles.content', 'LIKE', '%' . $v . '%')
