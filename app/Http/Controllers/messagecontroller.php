@@ -36,6 +36,8 @@ class messagecontroller extends Controller
             'content' => 'required',
         ]);
 
+        DB::table('articles')->where('id', '=', request()->article_id)->update(array('comment' => DB::raw('comment + 1')));
+
         $data = new message;
         $data->article_id = request()->article_id;
         $data->user_id = auth()->user()->id;

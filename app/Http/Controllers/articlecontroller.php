@@ -57,6 +57,8 @@ class articlecontroller extends Controller
             'updated_at' => $ti->format('Y-m-d H:i:s'),
         ));
 
+        DB::table('articles')->where('id', '=', $id)->update(array('visit' => DB::raw('visit + 1')));
+
         $articles = DB::table('articles')
             ->where('articles.id', '=', ($id))
             ->join('users', 'users.id', 'articles.author_id')

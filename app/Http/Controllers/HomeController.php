@@ -62,7 +62,11 @@ class HomeController extends Controller
                 'articles.title as title',
                 'articles.content as content',
                 DB::raw('SUBSTR(blog_articles.created_at, 1, 10) as time'),
-                DB::raw('COUNT(blog_messages.id) AS cou')
+                DB::raw('COUNT(blog_messages.id) AS cou'),
+                'articles.visit as visit',
+                'articles.good as good',
+                'articles.bad as bad',
+                'articles.share as share',
             )
             ->where('articles.title', 'LIKE', '%' . $v . '%')
             ->orWhere('articles.content', 'LIKE', '%' . $v . '%')

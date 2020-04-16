@@ -18,6 +18,11 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('author_id')->index();
             $table->longText('title');
             $table->longText('content');
+            $table->bigInteger('visit');
+            $table->bigInteger('share');
+            $table->bigInteger('good');
+            $table->bigInteger('bad');
+            $table->bigInteger('comment');
             $table->timestamps();
         });
 
