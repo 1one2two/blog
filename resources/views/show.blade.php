@@ -53,7 +53,7 @@
                     </a>
 
                     <!-- Sharingbutton Twitter -->
-                    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=%E6%8C%89%E8%B4%8A%EF%BC%8C%E5%88%86%E4%BA%AB%EF%BC%8C%E8%A8%82%E9%96%B1&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=toolmax%20xyz-{{ $article->title }}&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@
                     </a>
 
                     <!-- Sharingbutton E-Mail -->
-                    <a class="resp-sharing-button__link" href="mailto:?subject=%E6%8C%89%E8%B4%8A%EF%BC%8C%E5%88%86%E4%BA%AB%EF%BC%8C%E8%A8%82%E9%96%B1&amp;body=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_self" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="mailto:?subject=toolmax%20xyz-{{ $article->title }}&amp;body=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_self" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -73,7 +73,7 @@
                     </a>
 
                     <!-- Sharingbutton Telegram -->
-                    <a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%E6%8C%89%E8%B4%8A%EF%BC%8C%E5%88%86%E4%BA%AB%EF%BC%8C%E8%A8%82%E9%96%B1&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=toolmax%20xyz-{{ $article->title }}&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -135,7 +135,7 @@
             </div>
             <br>
             <div class="card border-light">
-                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">COMMENT</div>
+                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">COMMENTS</div>
 
                 <div class="card-body blog-post" style="background-color: #f8f9fc;">
                     @if (Auth::check() && auth()->user()->authority == "1")
@@ -167,6 +167,11 @@
                     </div>
                     @endforeach
                 </div>
+                @foreach($articles as $article)
+                <div class="card-body" style="min-height: 190px; background-color: #f8f9fc;">
+                    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="gr6kjD6m" data-limit="5"  data-height="190" data-page-id="{{ $article->id }}"></script>
+                </div>
+                @endforeach
             </div>
             <br>
             <nav aria-label="Page navigation example">
