@@ -9,7 +9,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <!-- <th>id</th> -->
+                                <th>id</th>
                                 <th>title</th>
                                 <th>view</th>
                                 <th>comment</th>
@@ -19,11 +19,15 @@
                         <tbody>
                             @foreach($ls as $l)
                             <tr>
-                                <!-- <td>{{ $l->id }}</td> -->
-                                <td>{{ $l->title }}</td>
+                                <td>{{ $l->id }}</td>
+                                <td><a href="/article/{{ $l->id }}">{{ $l->title }}</a></td>
                                 <td>{{ $l->visit}} </td>
                                 <td>{{ $l->comment }}</td>
-                                <td><input type="button" class="btn btn-primary" onclick="javascript:location.href='/edit/{{ $l->id }}'" value="Edit"></input></td>
+                                <td class="p-1">
+                                    <!-- <input type="button" class="btn btn-primary" onclick="javascript:location.href='/edit/{{ $l->id }}'" value="Edit"></input> -->
+                                    <!-- <a href="/edit/{{ $l->id }}">Edit</a> -->
+                                    <a href="/edit/{{ $l->id }}" class="btn btn-light" style="text-align:center;">Edit</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

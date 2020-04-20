@@ -142,7 +142,7 @@
                     <form action="{{ action('messagecontroller@create') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" name="content" id="exampleInputcontent" aria-describedby="contentHelp"></textarea>
+                            <textarea class="form-control" rows="3" name="content" id="exampleInputcontent" aria-describedby="contentHelp" style="background-color: #f8f9fc;"></textarea>
                         </div>
 
                         @error('content')

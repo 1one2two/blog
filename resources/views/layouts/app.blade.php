@@ -3,9 +3,28 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="keywords" http-equiv="keywords" content="toolman xyz" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="white">
-    <meta name="description" content="A simple blog make by laravel.">
+    <meta name="description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="toolman xyz">
+    <meta itemprop="description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
+    <meta itemprop="image" content="https://picsum.photos/340/210?random=1">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://toolman.xyz">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="toolman xyz">
+    <meta property="og:description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
+    <meta property="og:image" content="https://picsum.photos/340/210?random=2">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="toolman xyz">
+    <meta name="twitter:description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
+    <meta name="twitter:image" content="https://picsum.photos/340/210?random=3">
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <!-- Include stylesheet -->
@@ -19,13 +38,13 @@
 
     <title>toolman xyz</title>
 
-    <!-- Fonts -->
+    <!-- DNS -->
     <link rel="dns-prefetch" href="//picsum.photos">
     <link rel="dns-prefetch" href="//blog.toolman.xyz">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Ads -->
-    <script data-ad-client="ca-pub-1041011272242969" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <script data-ad-client="ca-pub-1041011272242969" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" async></script>
@@ -271,10 +290,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <form action="/" method="GET" style="height: 39px;">
+                            <form action="/" method="GET" style="height: 39px; padding-top: 3px;">
                                 @csrf
-                                <div class="mt-1 rounded-lg mr-1" style="border:2px solid #c3ccd5; display:inline-block; border-radius:10px;">
-                                    <input type="text" class="pl-2 pr-2" style="padding: 0rem; border: 0px;" placeholder="Search on toolman xyz" aria-label="Something..." name="v">
+                                <div class="mt-1 rounded-lg mr-1" style="border: solid #c3ccd5; border-width: 0px 0px 1px 0px; display:inline-block; border-radius:10px;">
+                                    <input type="text" class="pl-2 pr-2" style="padding: 0rem; border: 0px none; max-width: 170px;" placeholder="Search on toolman xyz" aria-label="Something..." name="v">
                                     <!-- <button type="submit" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button> -->
                                     <!-- <button class="urls" style="padding: 0px, 0.5rem; border: none; background: none; color: rgba(0,0,0,.5); font-family: nunito,sans-serif; font-size: .9rem;" type="submit">Search</button> -->
                                 </div>

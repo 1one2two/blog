@@ -18,8 +18,8 @@ box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.075);">
           <a href="https://lin.ee/CFCJNsZ"><img height="36" border="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png"></a>
         </span>
       </div>
-      <div class="w-100" style="text-align:center;">© 2020 Copyright:
-        <a href="https://toolman.xyz/"> toolman.xyz</a>
+      <div class="w-100" style="text-align:center;">© 2020
+        <a href="https://toolman.xyz/"> toolman xyz</a>
       </div>
     </div>
   </div>
