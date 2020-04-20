@@ -27,6 +27,10 @@ Route::get('/article/post', 'messagecontroller@post');
 
 Route::post('/article', 'articlecontroller@store')->name('posts');
 
+Route::get('/edit/{id}', 'articlecontroller@edit');
+
+Route::post('/edit', 'articlecontroller@updates');
+
 Route::get('/article/{id}', 'articlecontroller@show')->name('show');
 
 Route::post('/message/post', 'messagecontroller@create');

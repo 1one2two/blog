@@ -3,8 +3,8 @@
 box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.075);">
   <div class="container">
     <div class="row w-100">
-      <div class="col-md-12 justify-content-center align-self-center text-center">
-        <span class="col-md-0">
+      <div class="col-md-12 justify-content-center align-self-center" style="text-align:center;">
+        <span>
           <a class="resp-sharing-button__link" href="https://t.me/toolmanxyz" target="_blank" rel="noopener" aria-label="add to our channel">
             <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
               <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
@@ -14,12 +14,11 @@ box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.075);">
             </div>
           </a>
         </span>
-        <span class="col-md-0">
+        <span>
           <a href="https://lin.ee/CFCJNsZ"><img height="36" border="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png"></a>
         </span>
       </div>
-      <div class="py-2"><br></div>
-      <div class="text-center w-100" style="background-color: rgb(238, 238, 238);">© 2020 Copyright:
+      <div class="w-100" style="text-align:center;">© 2020 Copyright:
         <a href="https://toolman.xyz/"> toolman.xyz</a>
       </div>
     </div>

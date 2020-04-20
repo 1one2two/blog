@@ -20,7 +20,8 @@
         "mdcnette/snackbar": "^1.3",
         "monolog/monolog": "^2.0",
         "nilsenj/toastr-laravel": "dev-1.0-stable",
-        "swooletw/laravel-swoole": "^2.6"
+        "swooletw/laravel-swoole": "^2.6",
+	"guzzle/guzzle": "3.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

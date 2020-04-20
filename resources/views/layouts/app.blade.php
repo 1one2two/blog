@@ -274,8 +274,8 @@
                             <form action="/" method="GET" style="height: 39px;">
                                 @csrf
                                 <div class="mt-1 rounded-lg mr-1" style="border:2px solid #c3ccd5; display:inline-block; border-radius:10px;">
-                                    <input type="text" class="pl-2 pr-2" style="padding: 0rem; border: 0px;" aria-label="Something..." name="v">
-                                    <button type="submit" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button>
+                                    <input type="text" class="pl-2 pr-2" style="padding: 0rem; border: 0px;" placeholder="Search on toolman xyz" aria-label="Something..." name="v">
+                                    <!-- <button type="submit" style="border: none; background: none; color: rgba(0,0,0,0.5); font-family: nunito,sans-serif; font-size: 0.9rem; padding: 0.5rem, 0px, 0px, 0px">Search</button> -->
                                     <!-- <button class="urls" style="padding: 0px, 0.5rem; border: none; background: none; color: rgba(0,0,0,.5); font-family: nunito,sans-serif; font-size: .9rem;" type="submit">Search</button> -->
                                 </div>
                             </form>
@@ -335,7 +335,9 @@
             @yield('content')
         </main>
 
-        @include('layouts.footer')
+        <div style="max-height: 90px">
+            @include('layouts.footer')
+        </div>
     </div>
 </body>
 

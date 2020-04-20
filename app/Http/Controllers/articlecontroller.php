@@ -40,9 +40,40 @@ class articlecontroller extends Controller
             }
         }
 
+        // "https://api.telegram.org/bot789858369:AAHRQgxv7M8Uno28GIOwz5E0tpSyqaXV09s/sendMessage?chat_id=@toolmanxyz&text=1234";
+        // $client = new GuzzleHttp\Client('http://api.github.com/users/');
+        // $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
+        // dd($response);
+
         session()->flash('status', 'OK!! Article post!');
 
         return redirect('/article/' . $art->id);
+    }
+
+    public function edit($id)
+    {
+        $article = DB::table('articles')->where('author_id', '=', auth()->user()->id)->where('id', '=', $id)->first();
+        return view('edit', [
+            'id' => $id,
+            'title' => $article->title,
+            'content' => $article->content,
+        ]);
+    }
+
+    public function updates() {
+        $data = request()->validate([
+            'id' => 'required|max:6',
+            'title' => 'required|max:30000000',
+            'content' => 'required|max:30000000',
+        ]);
+
+        DB::table('articles')->where('id', '=', request()->id)->where('author_id', '=', auth()->user()->id)->update(array(
+            'title' => request()->title,
+            'content' => request()->content,
+        ));
+
+        session()->flash('status', 'OK!! Article update!');
+        return redirect('/article/' . request()->id);
     }
 
     public function show($id)
