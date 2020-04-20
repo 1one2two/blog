@@ -307,6 +307,11 @@
                                     Post article
                                 </a>
 
+                                <a class="dropdown-item" href="{{ action('messagecontroller@dashboard')  }}" onclick="event.preventDefault();
+                                                     document.getElementById('dashboard').submit();">
+                                    Dashboard
+                                </a>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -321,6 +326,10 @@
                                 </form>
 
                                 <form id="post" action="{{ action('messagecontroller@post') }}" method="GET" style="display: none;">
+                                    @csrf
+                                </form>
+
+                                <form id="dashboard" action="{{ action('messagecontroller@dashboard') }}" method="GET" style="display: none;">
                                     @csrf
                                 </form>
                             </div>

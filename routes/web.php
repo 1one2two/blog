@@ -25,11 +25,13 @@ Route::redirect('/home', '/');
 
 Route::get('/article/post', 'messagecontroller@post');
 
-Route::post('/article', 'articlecontroller@store')->name('posts');
+Route::post('/article', 'messagecontroller@store')->name('posts');
 
-Route::get('/edit/{id}', 'articlecontroller@edit');
+Route::get('/edit/{id}', 'messagecontroller@edit');
 
-Route::post('/edit', 'articlecontroller@updates');
+Route::post('/edit', 'messagecontroller@updates');
+
+Route::get('/dashboard', 'messagecontroller@dashboard');
 
 Route::get('/article/{id}', 'articlecontroller@show')->name('show');
 
