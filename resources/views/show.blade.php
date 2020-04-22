@@ -103,7 +103,7 @@
                     <div class="keywords">
                         Tags:
                         @foreach ($tg as $t)
-                        <a href="#" title="{{ $t->tg }}" class="tagg" style="display: inline-block;padding: 0 8px;border: 1px #d9dadd solid;margin: 5px 3px;background: #f8f9fc;background: -moz-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: -webkit-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: linear-gradient(to bottom, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f4f6', endColorstr='#eaeef0', GradientType=0);border-radius: 4px;">{{ $t->tg }}</a>
+                        <a href="/?t={{ $t->i }}" title="{{ $t->tg }}" class="tagg" style="display: inline-block;padding: 0 8px;border: 1px #d9dadd solid;margin: 5px 3px;background: #f8f9fc;background: -moz-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: -webkit-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: linear-gradient(to bottom, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f4f6', endColorstr='#eaeef0', GradientType=0);border-radius: 4px;">{{ $t->tg }}</a>
                         @endforeach
                     </div>
                 </div>

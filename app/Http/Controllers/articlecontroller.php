@@ -31,7 +31,7 @@ class articlecontroller extends Controller
         $articles = DB::table('articles')
             ->where('articles.id', '=', ($id))
             ->join('users', 'users.id', 'articles.author_id')
-            ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.created_at as time')
+            ->select('articles.id as id', 'title as title', 'articles.content as content', 'users.name as name', 'articles.updated_at as time')
             ->get();
 
         $more_articles = DB::table('articles')
@@ -42,7 +42,7 @@ class articlecontroller extends Controller
         //$tasks = DB::select('SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id WHERE articles.id = ' . $id)->paginate(1);
         $msg = DB::select('SELECT blog_users.name as name, blog_messages.content FROM `blog_messages` INNER JOIN blog_users ON blog_users.id = blog_messages.user_id WHERE `article_id` = ' . $id);
 
-        $tg = DB::select('SELECT blog_tags.t as tg FROM blog_article_tags INNER JOIN blog_tags ON blog_article_tags.tag_id=blog_tags.id WHERE blog_article_tags.art_id = ' . $id);
+        $tg = DB::select('SELECT blog_tags.t as tg, blog_tags.id as i FROM blog_article_tags INNER JOIN blog_tags ON blog_article_tags.tag_id=blog_tags.id WHERE blog_article_tags.art_id = ' . $id);
         // $tg_ = DB::table('article_tags')
         //     ->where('art_id', '=', $id)
         //     ->join('tags', 'tags.id', 'article_tags.art_id')

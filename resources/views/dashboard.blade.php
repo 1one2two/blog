@@ -9,17 +9,17 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>id</th>
+                                <!-- <th>id</th> -->
                                 <th>title</th>
                                 <th>view</th>
-                                <th>comment</th>
+                                <th>mesg</th>
                                 <th>edit</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($ls as $l)
                             <tr>
-                                <td>{{ $l->id }}</td>
+                                <!-- <td>{{ $l->id }}</td> -->
                                 <td><a href="/article/{{ $l->id }}">{{ $l->title }}</a></td>
                                 <td>{{ $l->visit}} </td>
                                 <td>{{ $l->comment }}</td>

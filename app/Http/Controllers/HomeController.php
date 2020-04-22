@@ -55,26 +55,44 @@ class HomeController extends Controller
         if (request()->v) {
             $v = request()->v;
         }
-        $articles = DB::table('articles')
-            ->select(
-                'articles.id as id',
-                'users.name as name',
-                'articles.title as title',
-                'articles.content as content',
-                DB::raw('SUBSTR(blog_articles.created_at, 1, 10) as time'),
-                DB::raw('COUNT(blog_messages.id) AS cou'),
-                'articles.visit as visit',
-                'articles.good as good',
-                'articles.bad as bad',
-                'articles.share as share',
-            )
-            ->where('articles.title', 'LIKE', '%' . $v . '%')
-            ->orWhere('articles.content', 'LIKE', '%' . $v . '%')
-            ->leftJoin('messages', 'messages.article_id', 'articles.id')
-            ->leftJoin('users', 'users.id', 'articles.author_id')
-            ->groupBy('articles.id')
-            ->orderBy('articles.id', 'desc')
-            ->paginate(12);
+        if (request()->t) {
+            $t = request()->t;
+            $articles = DB::table('articles')
+                ->select(
+                    'articles.id as id',
+                    'articles.title as title',
+                    'articles.content as content',
+                    DB::raw('SUBSTR(blog_articles.updated_at, 1, 10) as time'),
+                    'articles.comment as cou',
+                    'articles.visit as visit',
+                    'articles.good as good',
+                    'articles.bad as bad',
+                    'articles.share as share',
+                )
+                ->where('article_tags.tag_id', '=', $t)
+                ->leftJoin('article_tags', 'article_tags.art_id', 'articles.id')
+                ->orderBy('articles.id', 'desc')
+                ->paginate(12);
+        } else {
+            $articles = DB::table('articles')
+                ->select(
+                    'articles.id as id',
+                    'users.name as name',
+                    'articles.title as title',
+                    'articles.content as content',
+                    DB::raw('SUBSTR(blog_articles.updated_at, 1, 10) as time'),
+                    'articles.comment as cou',
+                    'articles.visit as visit',
+                    'articles.good as good',
+                    'articles.bad as bad',
+                    'articles.share as share',
+                )
+                ->where('articles.title', 'LIKE', '%' . $v . '%')
+                ->orWhere('articles.content', 'LIKE', '%' . $v . '%')
+                ->leftJoin('users', 'users.id', 'articles.author_id')
+                ->orderBy('articles.id', 'desc')
+                ->paginate(12);
+        }
 
         //$tasks = DB::select('SELECT articles.id AS id, SUBSTR(articles.title, 1, 7) AS title, SUBSTR(articles.content, 1, 13) AS content, users.name AS name FROM `articles` INNER JOIN users ON users.id = articles.author_id')->paginate(5);
         return view('home', [

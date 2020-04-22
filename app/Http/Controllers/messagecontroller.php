@@ -83,10 +83,11 @@ class messagecontroller extends Controller
             'title' => 'required|max:30000000',
             'content' => 'required|max:30000000',
         ]);
-
-        DB::table('articles')->where('id', '=', request()->id)->where('author_id', '=', auth()->user()->id)->update(array(
+        
+        article::where('id', '=', request()->id)->where('author_id', '=', auth()->user()->id)->limit(1)->update(array(
             'title' => request()->title,
             'content' => request()->content,
+            'updated_at' => now(),
         ));
 
         session()->flash('status', 'OK!! Article update!');
