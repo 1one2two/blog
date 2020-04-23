@@ -28,14 +28,14 @@
                         <!-- Edit title -->
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Enter title" value="{{ $title }}">
+                            <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" placeholder="Enter title" value="{{ $title }}" autocomplete="off">
                         </div>
                         <!-- End edit title -->
 
                         <!-- Edit content -->
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" rows="10" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content">{{ $content }}</textarea>
+                            <textarea class="form-control" rows="10" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content" autocomplete="off">{{ $content }}</textarea>
                         </div>
                         <!-- End edit content -->
 

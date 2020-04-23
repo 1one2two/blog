@@ -23,7 +23,7 @@ class articlecontroller extends Controller
             'Referer' => request()->header('Referer', ""),
             'Target' => request()->fullUrl(),
             'created_at' => $ti->format('Y-m-d H:i:s'),
-            'updated_at' => $ti->format('Y-m-d H:i:s'),
+            // 'updated_at' => $ti->format('Y-m-d H:i:s'),
         ));
 
         DB::table('articles')->where('id', '=', $id)->update(array('visit' => DB::raw('visit + 1')));

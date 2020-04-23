@@ -11,20 +11,20 @@
     <!-- Google / Search Engine Tags -->
     <meta itemprop="name" content="toolman xyz">
     <meta itemprop="description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
-    <meta itemprop="image" content="https://picsum.photos/340/210?random=1">
+    <meta itemprop="image" content="https://picsum.photos/340/210?random=3">
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://toolman.xyz">
     <meta property="og:type" content="website">
     <meta property="og:title" content="toolman xyz">
     <meta property="og:description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
-    <meta property="og:image" content="https://picsum.photos/340/210?random=2">
+    <meta property="og:image" content="https://picsum.photos/340/210?random=4">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="toolman xyz">
     <meta name="twitter:description" content="此網站版面極為簡潔且不包含任何廣告，內容包含不好笑又尷尬的文章、覺得之後可能會看所以先保存但事後很少會看的新聞等。">
-    <meta name="twitter:image" content="https://picsum.photos/340/210?random=3">
+    <meta name="twitter:image" content="https://picsum.photos/340/210?random=5">
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <!-- Include stylesheet -->
@@ -75,16 +75,23 @@
             text-decoration: none;
         }
 
+        a:hover,
+        a:active,
         a:visited {
             color: #000;
         }
 
-        a:hover {
-            color: #000;
+        .new-line a {
+            color: #607ac5;
+            text-decoration: underline;
         }
 
-        a:active {
-            color: #000;
+        .new-line img {
+            width: 100%;
+            max-width: 540px;
+            height: auto;
+            display: block;
+            margin: 0px auto;
         }
 
 
@@ -130,103 +137,6 @@
         .resp-sharing-button__icon--solidcircle {
             fill: #fff;
             stroke: none
-        }
-
-        .resp-sharing-button--twitter {
-            background-color: #55acee
-        }
-
-        .resp-sharing-button--twitter:hover {
-            background-color: #2795e9
-        }
-
-        .resp-sharing-button--pinterest {
-            background-color: #bd081c
-        }
-
-        .resp-sharing-button--pinterest:hover {
-            background-color: #8c0615
-        }
-
-        .resp-sharing-button--facebook {
-            background-color: #3b5998
-        }
-
-        .resp-sharing-button--facebook:hover {
-            background-color: #2d4373
-        }
-
-        .resp-sharing-button--tumblr {
-            background-color: #35465C
-        }
-
-        .resp-sharing-button--tumblr:hover {
-            background-color: #222d3c
-        }
-
-        .resp-sharing-button--reddit {
-            background-color: #5f99cf
-        }
-
-        .resp-sharing-button--reddit:hover {
-            background-color: #3a80c1
-        }
-
-        .resp-sharing-button--google {
-            background-color: #dd4b39
-        }
-
-        .resp-sharing-button--google:hover {
-            background-color: #c23321
-        }
-
-        .resp-sharing-button--linkedin {
-            background-color: #0077b5
-        }
-
-        .resp-sharing-button--linkedin:hover {
-            background-color: #046293
-        }
-
-        .resp-sharing-button--email {
-            background-color: #777
-        }
-
-        .resp-sharing-button--email:hover {
-            background-color: #5e5e5e
-        }
-
-        .resp-sharing-button--xing {
-            background-color: #1a7576
-        }
-
-        .resp-sharing-button--xing:hover {
-            background-color: #114c4c
-        }
-
-        .resp-sharing-button--whatsapp {
-            background-color: #25D366
-        }
-
-        .resp-sharing-button--whatsapp:hover {
-            background-color: #1da851
-        }
-
-        .resp-sharing-button--hackernews {
-            background-color: #FF6600
-        }
-
-        .resp-sharing-button--hackernews:hover,
-        .resp-sharing-button--hackernews:focus {
-            background-color: #FB6200
-        }
-
-        .resp-sharing-button--vk {
-            background-color: #507299
-        }
-
-        .resp-sharing-button--vk:hover {
-            background-color: #43648c
         }
 
         .resp-sharing-button--facebook {
@@ -316,23 +226,19 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ action('HomeController@index')  }}" onclick="event.preventDefault();
-                                                     document.getElementById('homes').submit();">
+                                <a class="dropdown-item" href="{{ action('HomeController@index')  }}" onclick="event.preventDefault(); document.getElementById('homes').submit();">
                                     Home
                                 </a>
 
-                                <a class="dropdown-item" href="{{ action('messagecontroller@post')  }}" onclick="event.preventDefault();
-                                                     document.getElementById('post').submit();">
+                                <a class="dropdown-item" href="{{ action('messagecontroller@post')  }}" onclick="event.preventDefault(); document.getElementById('post').submit();">
                                     Post article
                                 </a>
 
-                                <a class="dropdown-item" href="{{ action('messagecontroller@dashboard')  }}" onclick="event.preventDefault();
-                                                     document.getElementById('dashboard').submit();">
+                                <a class="dropdown-item" href="{{ action('messagecontroller@dashboard')  }}" onclick="event.preventDefault(); document.getElementById('dashboard').submit();">
                                     Dashboard
                                 </a>
 
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 

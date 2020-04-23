@@ -53,7 +53,7 @@
                     </a>
 
                     <!-- Sharingbutton Twitter -->
-                    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=toolmax%20xyz-{{ $article->title }}&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text={{ $article->title }}%20|%20toolman%20xyz&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@
                     </a>
 
                     <!-- Sharingbutton E-Mail -->
-                    <a class="resp-sharing-button__link" href="mailto:?subject=toolmax%20xyz-{{ $article->title }}&amp;body=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_self" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="mailto:?subject={{ $article->title }}%20|%20toolman%20xyz&amp;body=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_self" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -73,7 +73,7 @@
                     </a>
 
                     <!-- Sharingbutton Telegram -->
-                    <a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=toolmax%20xyz-{{ $article->title }}&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="https://telegram.me/share/url?text={{ $article->title }}%20|%20toolman%20xyz&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

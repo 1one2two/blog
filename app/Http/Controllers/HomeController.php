@@ -6,6 +6,7 @@ use App\article;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class HomeController extends Controller
 {
@@ -77,19 +78,15 @@ class HomeController extends Controller
             $articles = DB::table('articles')
                 ->select(
                     'articles.id as id',
-                    'users.name as name',
                     'articles.title as title',
                     'articles.content as content',
                     DB::raw('SUBSTR(blog_articles.updated_at, 1, 10) as time'),
                     'articles.comment as cou',
                     'articles.visit as visit',
                     'articles.good as good',
-                    'articles.bad as bad',
-                    'articles.share as share',
                 )
                 ->where('articles.title', 'LIKE', '%' . $v . '%')
                 ->orWhere('articles.content', 'LIKE', '%' . $v . '%')
-                ->leftJoin('users', 'users.id', 'articles.author_id')
                 ->orderBy('articles.id', 'desc')
                 ->paginate(12);
         }
