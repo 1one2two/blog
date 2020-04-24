@@ -86,6 +86,11 @@
             text-decoration: underline;
         }
 
+        .new-line .ct{
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
         .new-line img {
             width: 100%;
             max-width: 540px;

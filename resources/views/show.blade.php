@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <button type="button" onclick="topFunction()" id="myBtn" title="Go to top"><span>&#128285;</span></button>
+            <button type="button" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
             @if ($message = Session::get('status'))
             <div class="alert alert-success alert-block" role="alert">

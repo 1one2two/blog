@@ -14,12 +14,12 @@
                         <div class="rounded-lg border border-light">
                             <div class="card" data-link="/article/{{ $article->id }}">
                                 <a class="urls" href="/article/{{ $article->id }}">
-                                    <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="Images from Lorem Picsum"></img>
+                                    <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="Images from Lorem Picsum" onmouseover="transform: scale(1.5);" onmouseout="transform: scale(1);"></img>
                                 </a>
                                 <div class="card-body" style="background-color: #f8f9fc;">
                                     <a href="/article/{{ $article->id }}">
                                         <div style="height: 120px">
-                                            <h4 style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 320px; min-height:75px;">
+                                            <h4 style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 320px; min-height:75px; font-size: 1.5rem;">
                                                 {{ $article->title }}
                                             </h4>
                                             <div class="pt-2 font-weight-light">
