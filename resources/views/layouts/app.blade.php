@@ -94,6 +94,25 @@
             margin: 0px auto;
         }
 
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #bbbbbbd6;
+            color: #000;
+            cursor: pointer;
+            padding: .8rem;
+            border-radius: 10px;
+        }
+
+        #myBtn :hover {
+            background-color: #f8f9fc;
+        }
 
 
         .resp-sharing-button__link,
@@ -273,6 +292,33 @@
             @include('layouts.footer')
         </div>
     </div>
+
+    <script>
+        var mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                mybutton.style.display = "block";
+                $('#myBtn').fadeIn();
+            } else {
+                // mybutton.style.display = "none";
+                $('#myBtn').fadeOut();
+            }
+        }
+
+        function topFunction() {
+            $('html,body').animate({
+                scrollTop: 0
+            }, 'slow');
+            return false;
+            // document.body.scrollTop = 0;
+            // document.documentElement.scrollTop = 0;
+        }
+    </script>
 </body>
 
 </html>

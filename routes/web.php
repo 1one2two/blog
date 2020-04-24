@@ -14,6 +14,7 @@
 //use Illuminate\Routing\Route;
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\Environment\Console;
 
 Auth::routes();
@@ -41,19 +42,21 @@ Route::get('/google/auth', 'SocialiteController@redirectToProvider');
 Route::get('/google/auth/callback', 'SocialiteController@handleProviderCallback');
 
 
-Route::get('download/{filename}', function($filename)
+Route::get('image/{filename}', function($filename)
 {
     $file_path = 'file/'. $filename;
-    if (file_exists($file_path))
+    
+    return Storage::download($filename);
+    if (file_exists($filename))
     {
-        return Response::download($file_path, $filename, [
-            'Content-Length: '. filesize($file_path)
-        ]);
+        // return Response::download($file_path, $filename, [
+        //     'Content-Length: '. filesize($file_path)
+        // ]);
     }
     else
     {
         exit('Requested file does not exist on our server!');
     }
 })
-->where('filename', '[A-Za-z0-9\-\_\.]+');
+->where('filename', "^([a-z]|[A-Z]|_){1,15}.(png|jpg|gif)$");
 

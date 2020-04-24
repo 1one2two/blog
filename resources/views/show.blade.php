@@ -2,15 +2,12 @@
 
 @section('content')
 
-<style>
-    a:visited {
-        color: #116591;
-    }
-</style>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            <button type="button" onclick="topFunction()" id="myBtn" title="Go to top"><span>&#128285;</span></button>
+
             @if ($message = Session::get('status'))
             <div class="alert alert-success alert-block" role="alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -169,7 +166,7 @@
                 </div>
                 @foreach($articles as $article)
                 <div class="card-body" style="min-height: 190px; background-color: #f8f9fc;">
-                    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="gr6kjD6m" data-limit="5"  data-height="190" data-page-id="{{ $article->id }}"></script>
+                    <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="gr6kjD6m" data-limit="5" data-height="190" data-page-id="{{ $article->id }}"></script>
                 </div>
                 @endforeach
             </div>
