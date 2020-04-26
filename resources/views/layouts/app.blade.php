@@ -36,7 +36,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>toolman xyz</title>
+    <title>toolman xyz @yield('title')</title>
 
     <!-- DNS -->
     <link rel="dns-prefetch" href="//picsum.photos">

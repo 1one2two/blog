@@ -22,6 +22,8 @@
                     @if (count( $articles ) > 0)
                     @foreach($articles as $article)
                     @if ($article->id == $id )
+
+
                     <h1 class="blog-post-title">{{ $article->title }}</h1>
                     <p class="blog-post-meta">
                         By <a href="#">{{ $article->name }}</a>
@@ -50,7 +52,7 @@
                     </a>
 
                     <!-- Sharingbutton Twitter -->
-                    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text={{ $article->title }}%20|%20toolman%20xyz&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text={{ $article->title }}%20_%20toolman%20xyz&amp;url=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_blank" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -60,7 +62,7 @@
                     </a>
 
                     <!-- Sharingbutton E-Mail -->
-                    <a class="resp-sharing-button__link" href="mailto:?subject={{ $article->title }}%20|%20toolman%20xyz&amp;body=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_self" rel="noopener" aria-label="">
+                    <a class="resp-sharing-button__link" href="mailto:?subject={{ $article->title }}%20_%20toolman%20xyz&amp;body=https%3A%2F%2Fblog.toolman.xyz%2Farticle%2F{{ $article->id }}" target="_self" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
                             <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -199,4 +201,13 @@
         </div>
     </div>
     <!-- </div> -->
+    @endsection
+
+
+    @section('title')
+    @if (count( $articles ) > 0)
+    @foreach($articles as $article)
+     | {{ $article->title }}
+    @endforeach
+    @endif
     @endsection

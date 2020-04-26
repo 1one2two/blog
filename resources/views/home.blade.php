@@ -90,3 +90,7 @@
 </script> -->
 <!-- End Ads -->
 @endsection
+
+@section('title')
+ | home
+@endsection
