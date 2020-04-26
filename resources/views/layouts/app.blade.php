@@ -71,24 +71,36 @@
         }
 
         a:link {
-            color: #000;
+            color: #464646;
             text-decoration: none;
         }
 
         a:hover,
         a:active,
         a:visited {
-            color: #000;
+            color: #464646;
         }
 
         .new-line a {
-            color: #607ac5;
-            text-decoration: underline;
+            color: #424242;
+            /* text-decoration: underline #ff9595; */
+            border-bottom: 1px solid #ffca80;
         }
 
-        .new-line .ct{
+        .new-line a:hover {
+            border-bottom: 2px solid #f08c00;
+            /* background-image: linear-gradient(180deg,transparent 60%,#ffca80 0); */
+        }
+
+        .new-line p {
+            line-height: 1.85em;
+            margin-bottom: 1.25em;
+            font-size: 17px;
+        }
+
+        .new-line .ct {
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25em;
         }
 
         .new-line img {
@@ -102,17 +114,17 @@
         #myBtn {
             display: none;
             position: fixed;
-            bottom: 20px;
+            bottom: 15px;
             right: 30px;
             z-index: 99;
             font-size: 18px;
             border: none;
             outline: none;
-            background-color: #bbbbbbd6;
-            color: #000;
+            background-color: #bbbbbb96;
+            color: #00000096;
             cursor: pointer;
             padding: .8rem;
-            border-radius: 10px;
+            border-radius: 30px;
         }
 
         #myBtn :hover {
@@ -299,16 +311,26 @@
     </div>
 
     <script>
+        var hd = false;
         var mybutton = document.getElementById("myBtn");
 
         window.onscroll = function() {
             scrollFunction()
         };
 
+        function hides() {
+            $('#myBtn').fadeOut();
+            hd = false;
+        }
+
         function scrollFunction() {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                 mybutton.style.display = "block";
                 $('#myBtn').fadeIn();
+                if (hd == false) {
+                    setTimeout(hides, 8000);
+                    hd = true;
+                }
             } else {
                 // mybutton.style.display = "none";
                 $('#myBtn').fadeOut();
@@ -320,9 +342,14 @@
                 scrollTop: 0
             }, 'slow');
             return false;
-            // document.body.scrollTop = 0;
-            // document.documentElement.scrollTop = 0;
         }
+
+        $(document).ready(function() {
+            var a = document.getElementsByClassName('new-line')[0].getElementsByTagName('a');
+            for (var i = 0; i < a.length; i++) {
+                a.item(i).target = "_blank";
+            }
+        });
     </script>
 </body>
 

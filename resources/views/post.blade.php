@@ -34,6 +34,7 @@
                         <div class="form-group">
                             <label for="content">Content</label>
                             <textarea class="form-control" rows="10" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content" autocomplete="off"></textarea>
+                            <small>Can use class="ct" to center the text.</small>
                         </div>
                         <!-- End edit content -->
 
