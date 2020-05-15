@@ -37,7 +37,8 @@ class articlecontroller extends Controller
         $more_articles = DB::table('articles')
             ->select('articles.id as id', 'title as title', 'articles.created_at as time')->inRandomOrder()->limit(6)->get();
 
-        $cou = DB::table('articles')->count();
+        // SELECT `id` FROM `blog_articles` ORDER BY `id` DESC LIMIT 1
+        $cou = DB::table('articles')->select('id')->orderByDesc('id')->limit(1)->get()->toArray()[0]->id;
 
         //$tasks = DB::select('SELECT articles.id as id, articles.title, articles.content, users.name FROM `articles` INNER JOIN users ON users.id = articles.author_id WHERE articles.id = ' . $id)->paginate(1);
         $msg = DB::select('SELECT blog_users.name as name, blog_messages.content FROM `blog_messages` INNER JOIN blog_users ON blog_users.id = blog_messages.user_id WHERE `article_id` = ' . $id);

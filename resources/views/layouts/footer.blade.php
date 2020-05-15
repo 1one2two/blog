@@ -15,7 +15,7 @@ box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.075);">
           </a>
         </span>
         <span>
-          <a href="https://lin.ee/CFCJNsZ"><img height="36" border="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png"></a>
+          <a href="https://lin.ee/CFCJNsZ"><img height="36" borde="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/en.png" alt="Follow us on LINE"></a>
         </span>
       </div>
       <div class="w-100" style="text-align:center;">© 2020

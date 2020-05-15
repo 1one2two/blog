@@ -1,0 +1,3 @@
+page.blade.php
+
+home.blade.php
