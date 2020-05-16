@@ -81,6 +81,10 @@
             color: #464646;
         }
 
+        .new-line {
+            color: #424242;
+        }
+
         .new-line a {
             color: #424242;
             /* text-decoration: underline #ff9595; */

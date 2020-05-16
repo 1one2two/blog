@@ -58,5 +58,5 @@ Route::get('image/{filename}', function($filename)
         exit('Requested file does not exist on our server!');
     }
 })
-->where('filename', "^([a-z]|[A-Z]|_){1,15}.(png|jpg|gif)$");
+->where('filename', "^([a-z]|[A-Z]|_){1,15}.(png|jpg|gif|svg)$");
 
