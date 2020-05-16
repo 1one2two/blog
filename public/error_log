@@ -121,3 +121,10 @@
 [23-Mar-2020 14:24:56 UTC] PHP Warning:  Unsupported declare 'strict_types' in /home/lgi78yzaxut7/public_html/blog/vendor/nette/di/src/compatibility.php on line 8
 [23-Mar-2020 14:24:56 UTC] PHP Warning:  Unsupported declare 'strict_types' in /home/lgi78yzaxut7/public_html/blog/vendor/nette/di/src/DI/Config/Adapter.php on line 8
 [23-Mar-2020 14:24:56 UTC] PHP Parse error:  syntax error, unexpected ':', expecting ';' or '{' in /home/lgi78yzaxut7/public_html/blog/vendor/nette/di/src/DI/Config/Adapter.php on line 22
+[15-May-2020 17:45:10 Asia/Taipei] PHP Fatal error:  Uncaught InvalidArgumentException: View [errors.401] not found. in /home/lgi78yzaxut7/public_html/blog/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php:137
+Stack trace:
+#0 /home/lgi78yzaxut7/public_html/blog/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php(79): Illuminate\View\FileViewFinder->findInPaths('errors.401', Array)
+#1 /home/lgi78yzaxut7/public_html/blog/vendor/laravel/framework/src/Illuminate/View/Factory.php(131): Illuminate\View\FileViewFinder->find('errors.401')
+#2 /home/lgi78yzaxut7/public_html/blog/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(85): Illuminate\View\Factory->make('errors.401', Array)
+#3 /home/lgi78yzaxut7/public_html/blog/app/Exceptions/Handler.php(55): Illuminate\Routing\ResponseFactory->view('errors.401', Array, 419)
+#4 /home/lgi78yzaxut7/public_html/blog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(123): App\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(InvalidArgument in /home/lgi78yzaxut7/public_html/blog/vendor/laravel/framework/src/Illuminate/View/FileViewFinder.php on line 137
