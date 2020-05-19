@@ -4,19 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card border-light">
-                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">ARTICLE LIST</div>
-                <div class="py-2" style="background-color: #f8f9fc;"></div>
-                <div class="card-body p-2" style="background-color: #f8f9fc">
+            <div class="card" style="border: 0px;">
+                <!-- <div class="card-header" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">ARTICLE LIST</div>
+                <div class="py-2" style="background-color: #fff;"></div> -->
+                <div class="card-body p-2" style="background-color: #EBEBEB">
                     <!-- <div>This pictures are from <a href="https://picsum.photos/">Lorem Picsum</a></div> -->
                     <div class="card-columns">
                         @foreach ($articles as $article)
-                        <div class="rounded-lg border border-light">
-                            <div class="card" data-link="/article/{{ $article->id }}">
+                        <div class="rounded-lg">
+                            <div class="card" data-link="/article/{{ $article->id }}" style="border: 1px solid rgb(212, 212, 212); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;">
                                 <a class="urls" href="/article/{{ $article->id }}">
                                     <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="{{ $article->title }}" title="{{ $article->title }}" onmouseover="transform: scale(1.5);" onmouseout="transform: scale(1);"></img>
                                 </a>
-                                <div class="card-body" style="background-color: #f8f9fc;">
+                                <div class="card-body" style="background-color: #fff;">
                                     <a href="/article/{{ $article->id }}" aria-label="{{ $article->title }}">
                                         <div style="height: 120px">
                                             <h4 style="overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 320px; min-height:75px; font-size: 1.5rem;">
@@ -59,21 +59,21 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="py-2" style="background-color: #f8f9fc"></div>
-                <div class="card border-light">
-                    <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">POST ARTICLE</div>
+                <div class="py-2" style="background-color: #EBEBEB"></div>
+                <!-- <div class="card border-light">
+                    <div class="card-header" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">POST ARTICLE</div>
 
-                    <div class="card-body" style="background-color: #f8f9fc">
+                    <div class="card-body" style="background-color: #fff">
                         @if (Auth::check() && auth()->user()->authority == "1")
                         <a href="/article/post" class="btn btn-light" style="width: 100%; text-align:center;">Post article now</a>
                         @else
                         <a href="{{ route('login') }}" class="btn btn-light" style="width: 100%; text-align:center;">Log in to continue.</a>
                         @endif
                     </div>
-                </div>
+                </div> -->
 
-                <nav aria-label="Page navigation" style="background-color: #f8f9fc">
-                    <ul class="pagination pagination-lg justify-content-center">
+                <nav aria-label="Page navigation" style="background-color: #EBEBEB">
+                    <ul class="pagination pagination-lg justify-content-center" style="background-color: #EBEBEB">
                         {{ $articles->links('pages') }}
                     </ul>
                 </nav>

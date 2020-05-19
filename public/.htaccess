@@ -4,12 +4,15 @@
         </IfModule>
 
         <IfModule mod_headers.c>
-            Header always set X-hahaha "x ddd"
             Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
             Header always set Content-Security-Policy "data: 'unsafe-eval'"
-            Header always set X-Frame-Options "SAMEORIGIN"
-            Header always set Referrer-Policy "origin"
+            Header always set X-Frame-Options "DENY"
+            Header always set Referrer-Policy "strict-origin"
             Header always set Feature-Policy "vibrate 'none'"
+
+            Header set Cache-Control "no-cache, no-store, must-revalidate"
+            Header set Pragma "no-cache"
+            Header set Expires 0
         </IfModule>
 
         RewriteEngine On

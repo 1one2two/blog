@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <button type="button" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
             @if ($message = Session::get('status'))
@@ -15,10 +15,10 @@
             </div>
             @endif
 
-            <div class="card border-light" style="border: 0px;">
+            <div class="card" style=" border: 1px solid rgb(212, 212, 212); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;">
                 <!-- <div class="card-header"><b>Article</b></div> -->
 
-                <div class="card-body blog-post" style="background-color: #f8f9fc;">
+                <div class="card-body blog-post" style="background-color: #fff;">
                     @if (count( $articles ) > 0)
                     @foreach($articles as $article)
                     @if ($article->id == $id )
@@ -105,19 +105,19 @@
                     <div class="keywords">
                         Tags:
                         @foreach ($tg as $t)
-                        <a href="/?t={{ $t->i }}" title="{{ $t->tg }}" class="tagg" style="display: inline-block;padding: 0 8px;border: 1px #d9dadd solid;margin: 5px 3px;background: #f8f9fc;background: -moz-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: -webkit-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: linear-gradient(to bottom, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f4f6', endColorstr='#eaeef0', GradientType=0);border-radius: 4px;">{{ $t->tg }}</a>
+                        <a href="/?t={{ $t->i }}" title="{{ $t->tg }}" class="tagg" style="display: inline-block;padding: 0 8px; border: 1px #d9dadd solid;margin: 5px 3px;background: #fff;background: -moz-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: -webkit-linear-gradient(top, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);background: linear-gradient(to bottom, rgba(240, 244, 246, 1) 0%, rgba(234, 238, 240, 1) 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f4f6', endColorstr='#eaeef0', GradientType=0);border-radius: 4px;">{{ $t->tg }}</a>
                         @endforeach
                     </div>
                 </div>
             </div>
             <br>
-            <div class="card border-light">
-                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">MORE</div>
+            <div class="card" style="border: 1px solid rgb(212, 212, 212); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;">
+                <div class="card-header" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">MORE</div>
 
-                <div class="card-body" style="background-color: #f8f9fc;">
+                <div class="card-body" style="background-color: #fff;">
                     <div class="card-columns" style="column-count: 2;">
                         @foreach($more_articles as $article)
-                        <div class="card mb-3" style="background-color: #f8f9fc; border: 1px #d9dadd solid;">
+                        <div class="card mb-3" style="background-color: #fff; border: 1px #d9dadd solid;">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <a href="/article/{{ $article->id }}">
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <a href="/article/{{ $article->id }}">
-                                        <p class="p-2 mt-2" style="background-color: #f8f9fc; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 300px; height:80px; font-size: 16px;">{{ $article->title }}</p>
+                                        <p class="p-2 mt-2" style="background-color: #fff; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 300px; height:80px; font-size: 16px;">{{ $article->title }}</p>
                                     </a>
                                 </div>
                             </div>
@@ -136,15 +136,15 @@
                 </div>
             </div>
             <br>
-            <div class="card border-light">
-                <div class="card-header" style="background-color: #f8f9fc; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">COMMENTS</div>
+            <div class="card" style="border: 1px solid rgb(212, 212, 212); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;">
+                <div class="card-header" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">COMMENTS</div>
 
-                <div class="card-body blog-post" style="background-color: #f8f9fc;">
+                <div class="card-body blog-post" style="background-color: #fff;">
                     @if (Auth::check() && auth()->user()->authority == "1")
                     <form action="{{ action('messagecontroller@create') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" name="content" id="exampleInputcontent" aria-describedby="contentHelp" style="background-color: #f8f9fc;"></textarea>
+                            <textarea class="form-control" rows="3" name="content" id="exampleInputcontent" aria-describedby="contentHelp" style="background-color: #fff;"></textarea>
                         </div>
 
                         @error('content')
@@ -170,7 +170,7 @@
                     @endforeach
                 </div>
                 @foreach($articles as $article)
-                <div class="card-body" style="min-height: 190px; background-color: #f8f9fc;">
+                <div class="card-body" style="min-height: 190px; background-color: #fff;">
                     <script async src="https://comments.app/js/widget.js?2" data-comments-app-website="gr6kjD6m" data-limit="5" data-height="190" data-page-id="{{ $article->id }}"></script>
                 </div>
                 @endforeach
@@ -198,6 +198,31 @@
                         @endif
                 </ul>
             </nav>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="background-color: #fff; padding: 1.25rem; border: 1px solid #d4d4d4; box-shadow: 0 1px 2px rgba(0,0,0,.1);">
+                <div class="card-head" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.3rem; line-height: 1.35; border-bottom: 1px solid rgba(0, 0, 0, 0.125);">Random articles</div>
+                <div class="card-body" style="background-color: #fff;">
+                    <div class="card-columns" style="column-count: 1;">
+                        @foreach($more_articles as $article)
+                        <!-- <div class="card mb-4" style="background-color: #fff; border: 1px #d9dadd solid;"> -->
+                            <div class="row mb-2">
+                                <div class="" style="width: 113px; height: 70px; position: absolute;">
+                                    <a href="/article/{{ $article->id }}">
+                                        <img src="https://picsum.photos/113/70?random={{ $i++ }}" class="card-img h-100" alt="{{ $article->title }}">
+                                    </a>
+                                </div>
+                                <div class="" style="margin-left: 129px; min-height: 70px;">
+                                    <a href="/article/{{ $article->id }}">
+                                        <p class="mb-2" style="background-color: #fff; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; max-width: 300px; height:80px; font-size: 16px;">{{ $article->title }}</p>
+                                    </a>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- </div> -->
