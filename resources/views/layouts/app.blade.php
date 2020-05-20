@@ -228,6 +228,22 @@
         .resp-sharing-button--telegram:hover {
             background-color: #4B97D1;
         }
+
+        .resp-sharing-button--line {
+            background-color: #4CD400;
+        }
+
+        .resp-sharing-button--line:hover {
+            background-color: #389C00;
+        }
+
+        .col-lg-10 {
+            visibility: visible;
+        }
+
+        .col-2 {
+            visibility: hidden;
+        }
     </style>
 
     <link rel="apple-touch-icon" href="/download.png" async>
@@ -314,6 +330,9 @@
             </div>
         </nav>
 
+        <!-- <div style="background-color: #ebebeb">
+            <div class="col-2 col-md-10" style="height: 30px; background-color: #fff"></div>
+        </div> -->
         <main class="py-4" style="background-color: #EBEBEB">
             @yield('content')
         </main>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\article;
+use Validator;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -63,9 +64,27 @@ class HomeController extends Controller
         $v = "";
         if (request()->v) {
             $v = request()->v;
+            $validator = Validator::make(request()->all(), [
+                'v' => [
+                    'required',
+                    'regex:/^([0-9]|[a-z]|[A-Z]){1,30}$/i',
+                ],
+            ]);
+            if($validator->fails()) {
+                return redirect('home', 302);
+            }
         }
         if (request()->t) {
             $t = request()->t;
+            $validator = Validator::make(request()->all(), [
+                't' => [
+                    'required',
+                    'regex:/^[0-9]{1,4}$/i',
+                ],
+            ]);
+            if($validator->fails()) {
+                return redirect('home', 302);
+            }
             $articles = DB::table('articles')
                 ->select(
                     'articles.id as id',

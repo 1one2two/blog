@@ -28,13 +28,13 @@ Route::get('/article/post', 'messagecontroller@post');
 
 Route::post('/article', 'messagecontroller@store')->name('posts');
 
-Route::get('/edit/{id}', 'messagecontroller@edit');
+Route::get('/edit/{id}', 'messagecontroller@edit')->where('id', "^([0-9]){1,4}$");
 
 Route::post('/edit', 'messagecontroller@updates');
 
 Route::get('/dashboard', 'messagecontroller@dashboard');
 
-Route::get('/article/{id}', 'articlecontroller@show')->name('show');
+Route::get('/article/{id}', 'articlecontroller@show')->where('id', "^([0-9]){1,4}$")->name('show');
 
 Route::post('/message/post', 'messagecontroller@create');
 
