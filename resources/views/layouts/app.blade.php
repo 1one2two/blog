@@ -135,6 +135,15 @@
             background-color: #f8f9fc;
         }
 
+        .pic img {
+            transform: scale(1, 1);
+            transition: all 0.3s ease-out;
+        }
+
+        .pic img:hover {
+            transform: scale(1.1, 1.1);
+        }
+
 
         .resp-sharing-button__link,
         .resp-sharing-button__icon {

@@ -202,7 +202,7 @@
         <div class="col-md-4">
             <div class="card" style="background-color: #fff; padding: 1.25rem; border: 1px solid #d4d4d4; box-shadow: 0 1px 2px rgba(0,0,0,.1);">
                 <div class="card-head" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.3rem; line-height: 1.35; border-bottom: 1px solid rgba(0, 0, 0, 0.125);">Random articles</div>
-                <div class="card-body" style="background-color: #fff;">
+                <div class="card-body" style="background-color: #fff; padding: 1.25rem 1.25rem 0 1.25rem;">
                     <div class="card-columns" style="column-count: 1;">
                         @foreach($more_articles as $article)
                         <!-- <div class="card mb-4" style="background-color: #fff; border: 1px #d9dadd solid;"> -->

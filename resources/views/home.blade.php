@@ -13,9 +13,11 @@
                         @foreach ($articles as $article)
                         <div class="rounded-lg">
                             <div class="card" data-link="/article/{{ $article->id }}" style="border: 1px solid rgb(212, 212, 212); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;">
-                                <a class="urls" href="/article/{{ $article->id }}">
-                                    <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="{{ $article->title }}" title="{{ $article->title }}" onmouseover="transform: scale(1.5);" onmouseout="transform: scale(1);"></img>
-                                </a>
+                                <div style="overflow: hidden;" width="340" height="210">
+                                    <a class="urls pic" href="/article/{{ $article->id }}">
+                                        <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="{{ $article->title }}" title="{{ $article->title }}" onmouseover="transform: scale(1.5);" onmouseout="transform: scale(1);"></img>
+                                    </a>
+                                </div>
                                 <div class="card-body" style="background-color: #fff;">
                                     <a href="/article/{{ $article->id }}" aria-label="{{ $article->title }}">
                                         <div style="height: 120px">
@@ -31,7 +33,7 @@
                                                 </div>
                                                 <div class="mr-0 float-right icon">
                                                     <a class="mr-1">
-                                                        
+
                                                         <!-- <img width="12px" height="12px" src="data:image/png;base64,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" /> -->
                                                         {{-- $article->good --}}
                                                     </a>
@@ -92,5 +94,5 @@
 @endsection
 
 @section('title')
- | home
+| home
 @endsection
