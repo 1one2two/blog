@@ -35,7 +35,7 @@
                         <!-- Edit content -->
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" rows="10" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content" autocomplete="off">{{ $content }}</textarea>
+                            <textarea class="form-control" rows="10" name="content" id="content" aria-describedby="contentHelp" placeholder="Enter content" autocomplete="off" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{ $content }}</textarea>
                         </div>
                         <!-- End edit content -->
 

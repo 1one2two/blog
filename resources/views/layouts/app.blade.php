@@ -109,7 +109,7 @@
 
         .new-line img {
             width: 100%;
-            max-width: 540px;
+            max-width: 450px;
             height: auto;
             display: block;
             margin: 0px auto;

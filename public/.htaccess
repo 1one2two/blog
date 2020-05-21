@@ -5,9 +5,9 @@
 
         <IfModule mod_headers.c>
             Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-            Header always set Content-Security-Policy "data: 'unsafe-eval'"
+            Header always set Content-Security-Policy "frame-ancestors 'none';"
             Header always set X-Frame-Options "DENY"
-            Header always set Referrer-Policy "strict-origin"
+            Header always set Referrer-Policy "no-referrer-when-downgrade"
             Header always set Feature-Policy "vibrate 'none'"
 
             Header set Cache-Control "no-cache, no-store, must-revalidate"

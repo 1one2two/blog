@@ -62,15 +62,17 @@ class HomeController extends Controller
 
         // dd(request()->(v, ""));
         $v = "";
+        $n = 0;
         if (request()->v) {
             $v = request()->v;
+            $v = str_replace(['\\', '\'', '-', '_', '/', '*', '!', ':'],"",$v, $n);
             $validator = Validator::make(request()->all(), [
                 'v' => [
                     'required',
-                    'regex:/^([0-9]|[a-z]|[A-Z]){1,30}$/i',
+                    // "regex:/(['|-|_|\/|*|%|\s|\"|\\|\!])/i",
                 ],
             ]);
-            if($validator->fails()) {
+            if($validator->fails() || $n > 0) {
                 return redirect('home', 302);
             }
         }
