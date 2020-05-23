@@ -20,8 +20,10 @@ use SebastianBergmann\Environment\Console;
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('/api/article', 'HomeController@api');
 
-// Route::redirect('/home', '/');
+
+Route::redirect('/home', '/');
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/article/post', 'messagecontroller@post');

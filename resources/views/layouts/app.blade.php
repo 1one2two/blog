@@ -109,7 +109,7 @@
 
         .new-line img {
             width: 100%;
-            max-width: 450px;
+            /* max-width: 450px; */
             height: auto;
             display: block;
             margin: 0px auto;
@@ -244,6 +244,14 @@
         .col-2 {
             visibility: hidden;
         }
+
+        #next:focus {
+            box-shadow: 0 0 0 0rem #000 !important;
+        }
+
+        #next:active {
+            opacity: 0;
+        }
     </style>
 
     <link rel="apple-touch-icon" href="/download.png" async>
@@ -375,8 +383,51 @@
             }, 'slow');
             return false;
         }
+        $pg = 2;
+
+        function next() {
+            $.ajax({
+                type: 'get',
+                url: 'https://blog.toolman.xyz/api/article?page=' + $pg + '&v=' + $("#value")[0].text + '&t=' + $("#tags")[0].text,
+                data: {
+
+                },
+                timeout: 10000,
+                success: function(data) {
+                    $('#list').append(data);
+                    window.scrollBy(0, 10);
+                },
+                error: function() {
+                    $('#list').append("");
+                }
+            });
+            $pg = $pg + 1;
+            if ($pg > $('#total')[0].firstChild.data) {
+                $pg = 1;
+                // $('#next').hide();
+            }
+        };
 
         $(document).ready(function() {
+            $(window).scroll(function() {
+                $('.article').each(function(i) {
+                    var bottom_of_object = $(this).offset().top + 40; // + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    if (bottom_of_window > bottom_of_object) {
+                        $(this).animate({
+                            'opacity': '1',
+                        }, 800);
+                    }
+                });
+
+            });
+
+            window.scrollBy(0, 1);
+
+            // $('a').each(function(i) {
+            //     $(this).target = "_blank";
+            // });
             var a = document.getElementsByClassName('new-line')[0].getElementsByTagName('a');
             for (var i = 0; i < a.length; i++) {
                 a.item(i).target = "_blank";

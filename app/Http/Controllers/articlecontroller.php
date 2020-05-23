@@ -58,7 +58,9 @@ class articlecontroller extends Controller
                 'msg' => $msg,
                 'id' => $id,
                 'tg' => $tg,
-                'i' => 0,
+                'c' => "",
+                'v' => "",
+                'tt' => strval(""),
             ]);
         } else {
             return Redirect::to(action('HomeController@index'));

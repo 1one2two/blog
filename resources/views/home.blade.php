@@ -4,18 +4,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <button type="button" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
             <div class="card" style="border: 0px;">
                 <!-- <div class="card-header" style="background-color: #fff; border-bottom-width: 2px; font-size: 1.5rem; line-height: 1.35;">ARTICLE LIST</div>
                 <div class="py-2" style="background-color: #fff;"></div> -->
-                <div class="card-body p-2" style="background-color: #EBEBEB">
+                <div class="card-body p-2" style="background-color: #EBEBEB" id="list">
                     <!-- <div>This pictures are from <a href="https://picsum.photos/">Lorem Picsum</a></div> -->
                     <div class="card-columns">
                         @foreach ($articles as $article)
-                        <div class="rounded-lg">
+                        <div class="rounded-lg article" style="opacity:0;">
                             <div class="card" data-link="/article/{{ $article->id }}" style="border: 1px solid rgb(212, 212, 212); box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;">
                                 <div style="overflow: hidden;" width="340" height="210">
                                     <a class="urls pic" href="/article/{{ $article->id }}">
-                                        <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $i++ }}" alt="{{ $article->title }}" title="{{ $article->title }}" onmouseover="transform: scale(1.5);" onmouseout="transform: scale(1);"></img>
+                                        <img class="card-img-top" width="340" height="210" src="https://picsum.photos/340/210?random={{ $article->id }}" alt="{{ $article->title }}" title="{{ $article->title }}" onmouseover="transform: scale(1.5);" onmouseout="transform: scale(1);"></img>
                                     </a>
                                 </div>
                                 <div class="card-body" style="background-color: #fff;">
@@ -75,14 +77,22 @@
                 </div> -->
 
                 <nav aria-label="Page navigation" style="background-color: #EBEBEB">
-                    <ul class="pagination pagination-lg justify-content-center" style="background-color: #EBEBEB">
-                        {{ $articles->links('pages') }}
+
+                    <ul class="pagination justify-content-center" style="background-color: #EBEBEB">
+                        <input type="button" id="next" onclick="next()" class="btn btn-outline-primary" value="Show more" />
                     </ul>
+                    <!-- <ul class="pagination pagination-lg justify-content-center" style="background-color: #EBEBEB">
+                        {{ $articles->links('pages') }}
+                    </ul> -->
                 </nav>
             </div>
         </div>
     </div>
 </div>
+
+<a id="total" hidden>{{ $c }}</a>
+<a id="value" hidden>{{ $v }}</a>
+<a id="tags" name="t" hidden>{{ $tt }}</a>
 
 <!-- Ads -->
 <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

@@ -2,7 +2,7 @@
 -moz-box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.075);
 box-shadow: 0px -3px 3px 0px rgba(0,0,0,0.075);">
   <div class="container">
-    <div class="row w-100">
+    <div class="w-100">
       <div class="col-md-12 justify-content-center align-self-center" style="text-align:center;">
         <span>
           <a class="resp-sharing-button__link" href="https://t.me/toolmanxyz" target="_blank" rel="noopener" aria-label="add to our channel">

@@ -130,7 +130,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <a href="/article/{{ $article->id }}">
-                                        <img src="https://picsum.photos/300/185?random={{ $i++ }}" class="card-img h-100" alt="{{ $article->title }}">
+                                        <img src="https://picsum.photos/300/185?random={{ $article->id }}" class="card-img h-100" alt="{{ $article->title }}">
                                     </a>
                                 </div>
                                 <div class="col-lg-6">
@@ -217,7 +217,7 @@
                         <div class="mb-2">
                             <div class="" style="width: 113px; height: 70px; position: absolute;">
                                 <a href="/article/{{ $article->id }}">
-                                    <img src="https://picsum.photos/113/70?random={{ $i++ }}" class="card-img h-100" alt="{{ $article->title }}">
+                                    <img src="https://picsum.photos/113/70?random={{ $article->id }}" class="card-img h-100" alt="{{ $article->title }}">
                                 </a>
                             </div>
                             <div class="" style="margin-left: 129px; min-height: 70px;">
